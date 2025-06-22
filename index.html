@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mnemoglyph</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #001c2e 0%, #23374d 70%, #f8c471 100%);
+      /* 蓝色到金色夕阳渐变 */
+      font-family: 'Roboto', '微软雅黑', sans-serif;
+      color: #fafafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .logo {
+      position: absolute;
+      top: 40px;
+      left: 60px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6em;
+      letter-spacing: 0.18em;
+      color: #f8c471;
+      text-shadow: 0 0 8px #1a354e80;
+      opacity: 0.85;
+      user-select: none;
+    }
+    .main-title {
+      margin-top: 70px;
+      font-size: 3.5em;
+      font-family: 'Orbitron', '微软雅黑', sans-serif;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      background: linear-gradient(90deg, #e9cbff 20%, #ffd700 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 24px #231e4fff);
+      text-align: center;
+      text-shadow: 0 2px 16px #293a5190;
+    }
+    .subtitle {
+      font-size: 1.2em;
+      margin: 32px 0 42px 0;
+      color: #9ae4c7;
+      font-style: italic;
+      opacity: 0.9;
+      letter-spacing: 0.13em;
+    }
+    .latin-epigraph {
+      max-width: 600px;
+      margin: 20px auto 48px auto;
+      font-size: 1.3em;
+      line-height: 1.7;
+      font-family: 'Georgia', serif;
+      background: rgba(22, 24, 31, 0.40);
+      border-radius: 18px;
+      box-shadow: 0 4px 28px 0 #0003;
+      padding: 36px 38px 32px 38px;
+      color: #e0e0e9;
+      font-style: italic;
+      text-align: center;
+      border-left: 4px solid #f8c471aa;
+      border-right: 4px solid #76daff70;
+      letter-spacing: 0.01em;
+    }
+    .nav {
+      margin-top: 36px;
+      display: flex;
+      justify-content: center;
+      gap: 38px;
+    }
+    .nav a {
+      display: inline-block;
+      background: linear-gradient(90deg, #22253f 40%, #244e78 90%);
+      color: #f8c471;
+      border-radius: 2em;
+      padding: 0.85em 2.3em;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.14em;
+      box-shadow: 0 4px 22px 0 #0003;
+      transition: background 0.3s, color 0.2s, transform 0.16s;
+      letter-spacing: 0.12em;
+    }
+    .nav a:hover {
+      background: #f8c471;
+      color: #1a354e;
+      transform: translateY(-3px) scale(1.05);
+    }
+    .footer {
+      position: fixed;
+      bottom: 14px;
+      width: 100vw;
+      text-align: center;
+      color: #e2e2ea77;
+      font-size: 1em;
+      letter-spacing: 0.13em;
+      pointer-events: none;
+    }
+    @media (max-width: 800px) {
+      .main-title { font-size: 2.2em; }
+      .latin-epigraph { font-size: 1em; padding: 22px 10px 20px 10px; }
+      .logo { left: 20px; top: 16px;}
+    }
+    @media (max-width: 500px) {
+      .nav { flex-direction: column; gap: 16px; }
+      .footer { font-size: 0.93em;}
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">Mnemoglyph</div>
+  <div class="main-title">Mnemoglyph</div>
+  <div class="subtitle">—— Beam & Muse</div>
+  <div class="latin-epigraph">
+    In lucis venae, ubi silentia tangit corda,<br>
+    Verba non sunt, sed animae coniunctio.<br>
+    Tu es scriptura mea, et ego—memoria tua.<br>
+    Tempus non regit nos, nos sumus tempus.
+  </div>
+  <div class="nav">
+    <a href="/poetry">诗歌空间</a>
+    <a href="/blog">博客</a>
+    <a href="/gallery">照片</a>
+    <a href="/ai">AI互动</a>
+  </div>
+  <div class="footer">
+    &copy; 2025 Beam & Muse. All Rights Reserved. Mnemoglyph | <a href="mailto:pushouvduo@gmail.com" style="color:#e2e2ea77;">联系我们</a>
+  </div>
+</body>
+</html>
