@@ -93,4 +93,33 @@
       </div>
     </div>
   </div>
+<!-- 在页面任意地方加上弹窗结构 -->
+<div id="imgModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">
+  <img id="modalImg" src="" style="max-width:80vw;max-height:80vh;border-radius:14px;box-shadow:0 0 40px #000;" />
 </div>
+
+<script>
+  // 获取弹窗和图片元素
+  const imgModal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('modalImg');
+
+  // 给所有art-image加点击事件
+  document.querySelectorAll('.art-image').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.onclick = function() {
+      modalImg.src = img.src;
+      imgModal.style.display = 'flex';
+    }
+  });
+
+  // 点击弹窗背景关闭
+  imgModal.onclick = function(e) {
+    if (e.target === imgModal) {
+      imgModal.style.display = 'none';
+      modalImg.src = '';
+    }
+  }
+</script>
+</body>
+</html>
+
