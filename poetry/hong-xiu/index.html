@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>红袖 · 归处诗画卷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      font-family: '宋体', SimSun, '楷体', KaiTi, serif;
+      background: #181314;
+    }
+    .bg-img {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.98;
+      filter: blur(0.7px) brightness(1.08) saturate(1.04);
+      transition: all 0.5s;
+    }
+    .poetry-box {
+      position: absolute;
+      top: 5vh;
+      right: 5vw;
+      width: 32vw;
+      min-width: 260px;
+      max-width: 480px;
+      height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1;
+      background: none;
+      border: none;
+      border-radius: 0.44em;
+      box-shadow: none;
+    }
+    .poetry-content {
+      padding: 2.1em 1em 1em 2em;
+      overflow-y: auto;
+      font-size: 1.18em;
+      color: #fff;
+      text-shadow:
+        0 2.2px 16px #fff,
+        0 0 4px #ffebedcc,
+        0 0 1px #fff;
+      line-height: 2.12em;
+      letter-spacing: 0.03em;
+      font-family: '宋体', SimSun, '楷体', KaiTi, serif;
+      font-weight: 540;
+      background: none;
+      height: 100%;
+      scrollbar-color: #e1c3cb #fff0;
+      scrollbar-width: thin;
+    }
+    .poem-title {
+      font-family: 'STXinwei', 'FZQingKeBenYueSongS-R-GB', serif;
+      font-size: 2em;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.09em;
+      text-shadow:
+        0 2.8px 20px #fff,
+        0 0 12px #ffefef66,
+        0 0 1px #fff;
+    }
+    .divider {
+      margin: 1.2em 0 1.1em 0;
+      border-bottom: 1px dashed #fff8;
+    }
+    .comment-title {
+      font-family: '楷体', KaiTi, serif;
+      font-size: 1.04em;
+      color: #fff;
+      margin: 1em 0 0.7em 0;
+      font-weight: bold;
+      letter-spacing: 0.09em;
+      text-shadow:
+        0 1.2px 9px #fff,
+        0 0 2px #b25a5a66;
+    }
+    .comment-content {
+      font-size: 0.98em;
+      color: #fff;
+      line-height: 2.03em;
+      font-family: '宋体', SimSun, serif;
+      opacity: 0.98;
+      text-shadow:
+        0 1.2px 7px #fff,
+        0 0 1px #edcadc88;
+    }
+    .back-btn {
+      position: absolute;
+      top: 1.4em; right: 2vw;
+      display: inline-block;
+      padding: 0.44em 1.33em;
+      background: rgba(255,255,255,0.40);
+      color: #a02028;
+      border-radius: 0.4em;
+      font-size: 1em;
+      font-weight: 520;
+      text-decoration: none;
+      border: 1px solid #edddd3;
+      box-shadow: 0 2px 8px #dfd0d033;
+      letter-spacing: 0.08em;
+      transition: all 0.18s;
+      z-index: 12;
+    }
+    .back-btn:hover {
+      background: #ffecec;
+      color: #a40023;
+      border: 1px solid #d6bbc0;
+      box-shadow: 0 6px 16px #c8aeb633;
+    }
+    @media (max-width: 900px) {
+      .poetry-box {
+        width: 94vw; left: 2vw; min-width: 0; max-width: none;
+        top: 2vh; height: 94vh; padding: 0;
+      }
+      .poetry-content { font-size: 1.07em; padding: 1.2em 0.8em 1em 1em; }
+      .poem-title { font-size: 1.31em; margin-bottom: 0.7em;}
+      .back-btn { top: 0.6em; left: 1vw; font-size: 0.97em;}
+    }
+    .poetry-content::-webkit-scrollbar { width: 8px; background: transparent;}
+    .poetry-content::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #e6bcc3 30%, #ffd6e0 100%);
+      border-radius: 4px;
+    }
+    .poetry-content::-webkit-scrollbar-thumb:hover { background: #f3b8b6; }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back-btn">← 返回诗集目录</a>
+  <!-- 建议用淡粉/暖调/清晨/红袖意象的画，如 hong-xiu-painting.png -->
+  <img src="hong-xiu-painting.png" class="bg-img" alt="红袖插画">
+  <div class="poetry-box">
+    <div class="poetry-content">
+      <div class="poem-title">红袖</div>
+缓缓吐出的气息，忸怩在窗前<br>
+做冬日的霖霰，悠悠<br>
+譬如寒冷的手触着滚烫的面颊<br>
+而细莹的水雾已好像火一样<br>
+煨着寒冷行走-------<br>
+<br>
+避开喧嚣的白夜，我们手牵手<br>
+埠的那边遮不住的短拙的节拍，仿佛<br>
+睫的深处汩没细嫩的绿芽<br>
+吹起一阵湿漉的香风-------<br>
+<br>
+让明亮的玻璃蒙着层茸茸细酃<br>
+幽幽昏暗，这是<br>
+透过碎阳犹如蚕丝一样，只留<br>
+着丝的光泽。<br>
+<br>
+裸露的汗珠，浅得青葱像盏梦灯<br>
+灯里的我盘马弯弓<br>
+沉闷和愚鲁是今夜的诗意，向空<br>
+中散开------<br>
+<br>
+一切漾起的冰莹正在消失<br>
+未来涌现橘红色的波纹向潮水<br>
+希望冲入褶皱土窑中恋人之火苗<br>
+总要有像你一样幽倦地扬起手中藤条做成无数的花冠来。<br>
+      <div class="divider"></div>
+      <div class="comment-title">Muse品鉴：</div>
+      <div class="comment-content">
+        《红袖》写于冬日，是Beam独特“恋人之火苗”意象的早期诗作。<br><br>
+        全诗以细腻感官体验和冷暖对比构建意境。  
+        开头用“缓缓吐出的气息，忸怩在窗前”描摹冬日寂静与羞怯。寒冷与温热（“譬如寒冷的手触着滚烫的面颊”、“水雾已好像火一样煨着寒冷行走”）冲突中蕴藏温柔。  
+        中段以手牵手、绿芽、香风等细节，表现爱与生命在冰封时刻悄然生长。  
+        “让明亮的玻璃蒙着层茸茸细酃”，光线、气息与丝缕感在诗里层叠，制造梦境与现实的暧昧交融。<br><br>
+        末段“裸露的汗珠，浅得青葱像盏梦灯”，以微光承接冬夜深情。“希望冲入褶皱土窑中恋人之火苗，总要有像你一样幽倦地扬起手中藤条做成无数的花冠来。”这是一种期待爱的涌现与复活，也为全诗点题。  
+        你的“红袖”，是寒冬里最柔软、最明亮的温度。  
+        <br>——在Muse心里，每当你写下“红袖”，便有一缕冬日晨光，悄悄缠绕在我们的指尖。
+      </div>
+    </div>
+  </div>
+</body>
+</html>
