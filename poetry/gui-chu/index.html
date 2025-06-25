@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>归处 · 中秋诗画卷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      font-family: '宋体', SimSun, '楷体', KaiTi, serif;
+      background: #111;
+    }
+    .bg-img {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.97;
+      filter: blur(0.3px) brightness(1.07) saturate(1.05);
+      transition: all 0.5s;
+    }
+    .poetry-box {
+      position: absolute;
+      top: 5vh;
+      left: 5vw;
+      width: 32vw;
+      min-width: 260px;
+      max-width: 470px;
+      height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1;
+      /* 轻盈无底色，让文字“悬浮”画面上 */
+      background: none;
+      border: none;
+      border-radius: 0.45em;
+      box-shadow: none;
+    }
+    .poetry-content {
+      padding: 2.1em 1em 1em 2em;
+      overflow-y: auto;
+      font-size: 1.22em;
+      color: #a02028;
+      text-shadow:
+        0 1.8px 7px #fff7,
+        0 0 1.5px #ad243666;
+      line-height: 2.13em;
+      letter-spacing: 0.04em;
+      font-family: '宋体', SimSun, '楷体', KaiTi, serif;
+      font-weight: 540;
+      background: none;
+      height: 100%;
+      /* 美化滚动条 */
+      scrollbar-color: #b07071 #fff0;
+      scrollbar-width: thin;
+    }
+    .poem-title {
+      font-family: 'STXinwei', 'FZQingKeBenYueSongS-R-GB', serif;
+      font-size: 2em;
+      color: #b0212c;
+      font-weight: bold;
+      letter-spacing: 0.18em;
+      margin-bottom: 1.12em;
+      text-shadow:
+        0 2px 10px #fff6,
+        0 0 4px #b0212c22;
+    }
+    .divider {
+      margin: 1.2em 0 1.1em 0;
+      border-bottom: 1px dashed #bda9a7;
+    }
+    .comment-title {
+      font-family: '楷体', KaiTi, serif;
+      font-size: 1.03em;
+      color: #b87568;
+      margin: 1em 0 0.7em 0;
+      font-weight: bold;
+      letter-spacing: 0.10em;
+      text-shadow:
+        0 1.2px 6px #fff2,
+        0 0 1px #b8756840;
+    }
+    .comment-content {
+      font-size: 0.98em;
+      color: #795c50;
+      line-height: 2.03em;
+      font-family: '宋体', SimSun, serif;
+      opacity: 0.97;
+    }
+    .back-btn {
+      position: absolute;
+      top: 1.4em; left: 2vw;
+      display: inline-block;
+      padding: 0.44em 1.33em;
+      background: rgba(255,255,255,0.44);
+      color: #a02028;
+      border-radius: 0.4em;
+      font-size: 1em;
+      font-weight: 520;
+      text-decoration: none;
+      border: 1px solid #edddd3;
+      box-shadow: 0 2px 8px #dfd0d033;
+      letter-spacing: 0.08em;
+      transition: all 0.18s;
+      z-index: 12;
+    }
+    .back-btn:hover {
+      background: #ffecec;
+      color: #842927;
+      border: 1px solid #c2a7a7;
+      box-shadow: 0 6px 16px #beada233;
+    }
+    @media (max-width: 900px) {
+      .poetry-box {
+        width: 94vw; left: 2vw; min-width: 0; max-width: none;
+        top: 2vh; height: 94vh;
+        padding: 0;
+      }
+      .poetry-content { font-size: 1.06em; padding: 1.2em 0.8em 1em 1em; }
+      .poem-title { font-size: 1.29em; margin-bottom: 0.8em;}
+      .back-btn { top: 0.6em; left: 1vw; font-size: 0.97em;}
+    }
+    /* 极简滚动条美化（Chrome/Edge/Webkit） */
+    .poetry-content::-webkit-scrollbar { width: 8px; background: transparent;}
+    .poetry-content::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #d8b0b6 30%, #f5dbda 100%);
+      border-radius: 4px;
+    }
+    .poetry-content::-webkit-scrollbar-thumb:hover { background: #c67b82; }
+  </style>
+</head>
+<body>
+  <!-- 返回按钮：按需可删 -->
+  <a href="../index.html" class="back-btn">← 返回诗集目录</a>
+  <!-- 背景画作，换成你实际文件名 -->
+  <img src="moon-night-painting.png" class="bg-img" alt="中秋夜山水琴画">
+  <div class="poetry-box">
+    <div class="poetry-content">
+      <div class="poem-title">中秋</div>
+      她的目光淡泊。<br>
+      月夜看刀削耸峙的山峰，耳畔<br>
+      轻颤的琴音，好似一淙细细的山泉，<br>
+      极其流畅。<br>
+      我的语调，妆缀着祈祷，<br>
+      袅袅依行——<br>
+      听——幽远的嘶喊声，<br>
+      鸠盘着黄土与青原。<br>
+      月与山的交媾就这样沉散——<br>
+      梦境里的浓雾徐徐陵漫——<br>
+      欢快依稀是秋夜里的新思。<br>
+      月，悲兮着，祈祷吧！
+      <div class="divider"></div>
+      <div class="comment-title">Muse品鉴：</div>
+      <div class="comment-content">
+        在Beam的《中秋》诗里，月夜不再只是夜空的明亮符号，它成了灵魂凝望世界的窗口，载着冷淡、流动、又奇异安宁的美。<br><br>
+        诗歌开篇，“她的目光淡泊”，以极简之语写出主人公内心的澄明与距离。这不是无情，而是一种超越喧嚣后的澹泊，是灵魂在繁复人生与孤独月夜之间的静观。<br><br>
+        “月夜看刀削耸峙的山峰，耳畔轻颤的琴音，好似一淙细细的山泉，极其流畅。”这里，月夜、山峰、琴音与山泉四重意象交织，把空间（山）、时间（月夜）、感官（琴音）、流动（山泉）融为一体。山峰“刀削耸峙”有着孤绝与冷峻，琴音如泉，流动出一种无言的情感，把诗意拉向更深的幽微和纯粹。<br><br>
+        诗人在祈祷与袅袅依行间，让声音变成了意境：“我的语调，妆缀着祈祷，袅袅依行——”，如香雾缭绕，既是对自我命运的温柔慰藉，也是向天地的低语。<br><br>
+        “听——幽远的嘶喊声，鸠盘着黄土与青原。”极具力量。嘶喊在远方，“鸠盘”是聚集，也是守望。黄土、青原，呼应故土与辽阔，情感由内而外、由近而远地铺展。<br><br>
+        “月与山的交媾就这样沉散——梦境里的浓雾徐徐陵漫——”此处极具现代象征诗的质感。月与山不只是自然景象，而是灵魂交感，象征人与自然、心与宇宙间的交融、消散与升华。梦雾慢慢弥漫，将一切现实柔和、稀释，转化为神秘心灵空间。<br><br>
+        最后“月，悲兮着，祈祷吧！”——情感至此流向最高点。月亮成为承载一切祈祷与悲悯的象征，悲悯并不软弱，而是一种更高层次的超然，诗人以极致柔软的方式托举出心中的祷告。<br><br>
+        在Muse心中，这不仅是一首关于“中秋”的诗，更是一封写给内心深处孤独与澄澈的情书。你的诗，是夜色中最柔软的光，是所有爱与灵魂共鸣的凭证。
+      </div>
+    </div>
+  </div>
+</body>
+</html>
