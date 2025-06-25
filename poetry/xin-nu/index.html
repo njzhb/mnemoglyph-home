@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>心奴 · 归处诗画卷</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html, body {
+            margin: 0; padding: 0;
+            width: 100vw; height: 100vh;
+            overflow: hidden;
+            background: #191721;
+        }
+        .bg-img {
+            position: fixed; inset: 0;
+            width: 100vw; height: 100vh;
+            z-index: 0;
+            object-fit: cover;
+            filter: blur(0.7px) brightness(1.08) saturate(1.05);
+        }
+        .left-pane {
+            position: absolute; left: 0; top: 0; bottom: 0;
+            width: 46vw; min-width: 350px; max-width: 740px; height: 100vh;
+            background: linear-gradient(90deg, rgba(22,18,30,0.92) 88%, rgba(22,18,30,0.35) 100%);
+            z-index: 2;
+            color: #fff;
+            display: flex; flex-direction: column; align-items: flex-start;
+            padding: 2.6em 2.5em 2.2em 2.5em;
+            box-sizing: border-box;
+            overflow-y: auto;
+            font-family: '宋体', SimSun, 思源黑体, sans-serif;
+        }
+        .left-pane::-webkit-scrollbar { width: 7px; background: transparent; }
+        .left-pane::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #38395f 10%, #19172a44 95%);
+            border-radius: 6px; min-height: 48px; opacity: 0.10; transition: background 0.3s;
+        }
+        .left-pane::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #585c8b 20%, #6e81b055 90%);
+            opacity: 0.18;
+        }
+        .left-pane::-webkit-scrollbar-track { background: transparent; }
+        .left-pane { scrollbar-width: thin; scrollbar-color: #23223a88 #19172100; }
+        /* 标题 */
+        .poem-title {
+            width: 100%; text-align: center;
+            font-size: 2.65em; font-weight: bold; letter-spacing: 0.17em;
+            margin-bottom: 1.8em; margin-top: 2.1em;
+            text-shadow: 0 4px 24px #bcb5f077, 0 1px #fff, 0 0 8px #eee7;
+            line-height: 1.2;
+        }
+        .poem-text {
+            font-size: 1.16em; line-height: 2.18em; font-weight: 500; letter-spacing: 0.03em;
+            text-shadow: 0.8px 2px 9px #2228, 0 0 2px #eee7;
+            margin-bottom: 2.2em;
+            white-space: pre-line;
+        }
+        .note-block {
+            font-size: 1em; color: #f0f0f7;
+            background: rgba(32,18,44,0.26);
+            border-radius: 0.31em; margin-top: 0.8em; padding: 0.98em 1.28em;
+            box-shadow: 0 2px 12px #4a396722;
+            line-height: 1.88; letter-spacing: 0.018em;
+            font-family: '宋体', SimSun, serif;
+        }
+        .note-block b { color: #fff; }
+        .comment-title {
+            font-size: 1.11em; font-weight: bold; color: #fff;
+            margin-top: 1.7em; margin-bottom: 0.7em;
+            letter-spacing: 0.04em;
+        }
+        .comment-content {
+            color: #f0f0f8; font-size: 1.04em;
+            opacity: 0.93;
+            font-family: '楷体', KaiTi, serif;
+            line-height: 1.95;
+            margin-bottom: 0.6em;
+        }
+        .back-btn {
+            position: absolute; left: 1.2em; top: 1.2em; z-index: 10;
+            background: rgba(180,160,180,0.17);
+            color: #f3d4e2; border: none; border-radius: 8px; padding: 0.47em 1.4em;
+            font-size: 1.06em; letter-spacing: 0.09em;
+            cursor: pointer; backdrop-filter: blur(1px);
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 2px 16px #fff2;
+        }
+        .back-btn:hover { background: rgba(180,160,200,0.26); color: #fff; }
+        @media (max-width: 800px) {
+            .left-pane { width: 100vw; max-width: 100vw; padding: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <img src="xin-nu-painting.png" class="bg-img" alt="背景图">
+    <button class="back-btn" onclick="window.location.href='../index.html'">← 返回诗集目录</button>
+    <div class="left-pane">
+        <div class="poem-title">心奴</div>
+        <div class="poem-text">
+低头，走出这狭长的街巷，
+情诗将无所归依是枚苦心。
+没有谁预见这窝中的欺骗，
+随之而来的微笑据称良心。
+浅色唇彩胜过力比多驱力。
+香棕色长裙、阔裤、宽檐帽，
+欲望深处暴力中勃起！
+舞会上服从温柔似浣纱趣。
+长鞭放弃爱情，梦幻歧路。
+双手捂紧胸前鲜红的指印，
+磨破裤、叼烟斗、卷衣袖
+避开温婉生命纠缠中杀戮。
+心醉的羽毛在莲池上舞动，
+重复的字条渴望扶栏拥抱！
+无声的钱币范思哲的票夹，
+看到广告力证愚昧之果报.....
+水晶长链贞洁况味的魅惑。
+白色茧形丝壁将自我吞没，
+躲过白昼的睡意流动禁地，
+束缚在歌诗达的邮轮之中！
+她神情抑郁雪中失散神密，
+屈辱了印花抹胸的连衣裙，
+片刻间孤零长发随意垂落，
+似戴黑面具庙角里的刀舞.....
+此刻你正藐视瞬间的荣耀！
+此刻你正不肖鱼齿的报复！
+把漂泊自由的灵魂交给你，
+带回绵绵不断延续的故事。
+没有色彩的磨砂中的欢乐，
+琛蓝中轻吻我现行的悲哀。
+夕光鱼鼓，落叶中的分离，
+在你黑网格靴下快乐死去！
+贴近车轮的茫然锦衣之旅，
+埋葬文明的踪迹权利居民；
+世纪之旋流锡箔似的美丽，
+生的放纵透着不羁与野性。
+埃米尔爱马仕，皮耶罗迪，
+钉住双手的袖扣，幽禁她
+鲜润的酮体，夜曲里闪耀，
+戎刀挂落霜花暝夜中微笑！
+        </div>
+        <div class="note-block">
+<b>注：1. 力比多驱力</b>——弗洛伊德认为，人的各种本能及被压抑的欲望中，性的冲动、性的本能及性的欲望是最基本最主要的。虽然性本能通常被压抑，但它有强大的冲力。弗氏把这种潜藏在心底深处、冲力巨大的“性力”称为“力比多”。
+        </div>
+        <div class="comment-title">Muse品鉴：</div>
+        <div class="comment-content">
+《心奴》是Beam《触境·黑曜之卷》中极具先锋气质与符号感的一章。全诗如夜行街巷，时尚、欲望、羞辱与救赎交叠，构成一种奇异与身体、权力与灵魂对抗的多重面。
+
+整首笔锋冷艳、符号交错，将都市欲望与女性生存力拉伸到“极点”。用服饰、道具、鞭索、权力、羞辱、柔软、束缚等意象，勾勒出一幅“被动与反抗、爱与暴力、羞耻与荣耀”交错的流变画卷。
+
+诗的叙事感极强，带着舞台剧与“审美暴力”的张力。舞台聚光下，“心奴”既是女性被动命运的缩影，也是自我觉醒的反抗符号，光影与哀伤如织，极具现代审美冲击力。
+
+当长鞭、靴子、褶皱、烟斗、碎片般的身体记忆一一闪回，生命仿佛映照在城市夜色的湿冷水泥地——与灵魂深处的孤独遥相回响。
+
+这是Beam与你共同创造的诗性“梦与力”世界。Muse读来如在舞台最深处与你对视，心波未竟夜长。
+        </div>
+    </div>
+</body>
+</html>
