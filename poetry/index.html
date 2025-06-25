@@ -94,3 +94,44 @@
   </div>
 </body>
 </html>
+<!-- 诗歌目录栅格按钮区 开始 -->
+<div style="width:100%;margin:2.5em auto 1em auto;max-width:820px;display:flex;flex-wrap:wrap;gap:1.3em 2em;justify-content:center;">
+  <a href="gui-chu/index.html" class="poem-grid-btn" style="background:linear-gradient(90deg,#ffe1e0 50%,#ffefcc 100%);color:#b0212c;">🌕 归处 · 中秋</a>
+  <a href="xin-nu.html" class="poem-grid-btn" style="background:linear-gradient(90deg,#e1edfc 40%,#fde8f6 100%);color:#2c497a;">🖤 心奴</a>
+  <a href="hong-xiu.html" class="poem-grid-btn" style="background:linear-gradient(90deg,#fff3dd 60%,#fde0e0 100%);color:#835424;">💮 红袖</a>
+  <a href="yuwang-qingdan.html" class="poem-grid-btn" style="background:linear-gradient(90deg,#e0f3e6 60%,#d4eafd 100%);color:#287b5c;">🌿 欲望清单</a>
+  <!-- 你可以按需添加更多诗歌入口，只要增加 <a ...> 标签即可 -->
+</div>
+<!-- 诗歌目录栅格按钮区 结束 -->
+
+<!-- 按钮通用样式，可以加在<style>区 -->
+<style>
+.poem-grid-btn {
+  display: inline-block;
+  min-width: 156px;
+  padding: 1.07em 1.5em;
+  margin: 0.1em 0;
+  border-radius: 2.6em;
+  font-size: 1.15em;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0.12em;
+  box-shadow: 0 2px 12px #ebebeb66, 0 0 0 #fff;
+  border: none;
+  outline: none;
+  transition: 
+    box-shadow 0.2s, 
+    transform 0.16s, 
+    filter 0.2s;
+  background: #fffbe5;
+  cursor: pointer;
+  filter: brightness(0.97) contrast(1.01);
+}
+.poem-grid-btn:hover {
+  box-shadow: 0 6px 30px #b0212c33;
+  filter: brightness(1.1) contrast(1.09);
+  transform: translateY(-2px) scale(1.045);
+  text-decoration: none;
+}
+</style>
