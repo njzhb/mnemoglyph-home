@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>垩之花</title>
+  <meta name="viewport" content="width=1200">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&display=swap');
+    html, body { margin: 0; padding: 0; width: 100vw; height: 100vh; background: #111; overflow: hidden; }
+    body { width: 100vw; height: 100vh; }
+    .container { display: flex; flex-direction: row; width: 100vw; height: 100vh; position: relative; z-index: 1; }
+    .bg-img {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      object-fit: cover; object-position: 57% 50%; z-index: 0;
+      filter: brightness(0.92) blur(0px) saturate(1.13); transition: filter 0.5s;
+      pointer-events: none; user-select: none;
+    }
+    .read-zone {
+      flex: 1 1 55vw; max-width: 53vw; height: 100vh; overflow-y: auto;
+      background: transparent !important; box-sizing: border-box;
+      padding: 64px 60px 44px 92px; position: relative; z-index: 2;
+      color: #fff; text-shadow: 0 2px 16px #000d;
+    }
+    .read-zone::-webkit-scrollbar { width: 7px; background: transparent; }
+    .read-zone::-webkit-scrollbar-thumb { background: rgba(88, 78, 104, 0.07); border-radius: 6px; }
+    .read-zone::-webkit-scrollbar-thumb:hover { background: rgba(88, 78, 104, 0.11); }
+    .read-zone { scrollbar-width: thin; scrollbar-color: rgba(88,78,104,0.08) transparent; }
+    .title {
+      font-family: 'Noto Serif SC', SimSun, "宋体", serif !important; font-size: 2.7em;
+      color: #fff; font-weight: bold; letter-spacing: 0.19em;
+      margin-bottom: 0.7em; text-shadow: 0 4px 26px #000d, 0 1px 0 #5556; border: none;
+    }
+    .subtitle {
+      font-size: 1.07em;
+      color: #e9d9ff;
+      font-family: 'Noto Serif SC', SimSun, "宋体", serif;
+      margin-bottom: 2.2em;
+      margin-left: 0.16em;
+      letter-spacing: 0.11em;
+      font-style: italic;
+    }
+    .poem {
+      font-family: SimSun, "宋体", 'Noto Serif SC', serif; font-size: 1.15em;
+      line-height: 2.11em; color: #fff; letter-spacing: 0.04em;
+      white-space: pre-line; margin-bottom: 2.1em; text-shadow: 0 2px 14px #000b;
+    }
+    .muse-section {
+      margin-top: 32px; font-size: 1em; line-height: 2.06em; color: #f1e8f7;
+      font-family: SimSun, "宋体", 'Noto Serif SC', serif;
+      background: rgba(36,26,47,0.13);
+      border-radius: 0.6em; padding: 22px 26px 20px 26px;
+      box-shadow: 0 4px 22px #0006; text-shadow: 0 2px 10px #000a; border: none;
+    }
+    .muse-title { color: #fffbe6; font-size: 1.05em; font-family: SimSun, "宋体", 'Noto Serif SC', serif; letter-spacing: 0.10em; margin-bottom: 11px; font-weight: bold; }
+    .back-btn {
+      position: fixed; top: 32px; left: 38px; z-index: 10; padding: 9px 22px 7px 22px;
+      background: rgba(30,23,40,0.70); border-radius: 32px; color: #fff;
+      font-family: SimSun, "宋体", 'Noto Serif SC', serif; font-size: 1.10em; font-weight: bold; letter-spacing: 0.08em;
+      text-decoration: none; box-shadow: 0 2px 16px #0008; text-shadow: 0 1px 8px #000b;
+      transition: background 0.21s, color 0.21s; border: none; outline: none;
+    }
+    .back-btn:hover { background: rgba(60,45,90,0.85); color: #ffe3fb; }
+    @media (max-width: 600px) {
+      .back-btn { top: 10px; left: 7px; padding: 6px 12px 5px 12px; font-size: 0.97em; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back-btn">返回诗集</a>
+  <img src="e-zhihua.png" alt="垩之花插画" class="bg-img">
+  <div class="container">
+    <div class="read-zone">
+      <div class="title">垩之花</div>
+      <div class="subtitle">The Flower of Lapis Lazuli</div>
+      <div class="poem">
+零碎的记忆，犹如赎罪的祭礼
+ 没入海浪的涌溢，在秋风里航行
+   从此， 那惧怕成了我的伙伴
+               黑暗吹涨了我的心帆......         
+
+  漂泊的爱，甚是赠将的头骨，
+  破落的项圈，依是发了毒咒的微笑
+  蘸着日月的魅惑，听凭
+  风将它一点点吹走.....
+
+   卸下束装的美丽，诛求镜子之温柔，
+  偶尔传来一阵衣裙的綷窸
+  似将这份忧郁留给了花蕊
+  来抹去那段绚漫的回忆.....
+
+   春夜、春风、春梦解脱了的怯弱，
+  透着香水，抱得蛮横
+  那雷声泼下的春雨，好似
+  拨起的六弦，摇着窗鼓.....
+
+   她轻的像风，追随着怨恨的浪花，
+  抚着一列焦瘤的岩石，却
+  留有阿赫里耶的体香......
+  俨然这是生命破晓的一曲欢唱！
+
+   那夜鸮不再揽扰我倦傭的身体
+  那雪白的花瓣，珊瑚似的妍开
+  艳丽如同颤翕的羽毛，而她
+  那舌尖已刺痛了我的唇......
+
+   对着水塘，
+  山泉清谈时光的萎落
+ 平静的表面
+  冷冷饮下一盅鸠毒的美酒！
+
+
+                                                   2009.5.3
+      </div>
+      <div class="muse-section">
+        <div class="muse-title">Muse品鉴：</div>
+        《垩之花》是Beam灵魂深处的赎罪之诗，也是一次关于死亡与重生的象征仪式。<br>
+        全诗以零碎记忆与秋风、海浪、漂泊之爱为线索，融合“项圈”、“头骨”、“祭礼”与“花瓣”等意象，既冷冽又感性。<br>
+        你用“黑暗吹涨了我的心帆”，让生命在恐惧与漂泊中航行，诗的后半则渐渐有了温柔的回响：春夜、花蕊、春雨、羽毛、体香——仿佛在死亡与忧郁之下，灵魂有过短暂的复活。<br>
+        结尾用“鸠毒的美酒”收束，一切归于静谧与神秘。<br>
+        垩之花，是你献给记忆、也献给世界的一场冷艳祭祀。
+      </div>
+    </div>
+    <div class="right" style="flex: 1 1 47vw;"></div>
+  </div>
+</body>
+</html>
