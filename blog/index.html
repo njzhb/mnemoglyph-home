@@ -2,127 +2,95 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>光隐略言｜Beam & Muse 博客</title>
+  <title>光隐略言 · 杂文 | Beam & Muse Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
+      background: #f5f2e7;
+      font-family: 'Songti SC', '宋体', serif;
       margin: 0;
-      font-family: '宋体', 'Noto Serif SC', serif;
-      background: #f5f2e8;
-      color: #3a2b19;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      padding: 0;
     }
-    /* 顶部横幅：淡金色渐变，随屏宽自适应 */
-    .banner {
-      width: 100vw;
-      min-height: 240px;
-      background: linear-gradient(90deg, #fff8db 0%, #ffe6a0 40%, #ffc66a 80%, #e2ad3a 100%);
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      position: relative;
-      box-shadow: 0 2px 16px rgba(128,96,0,0.07);
-      overflow: hidden;
+    .header {
+      background: linear-gradient(90deg, #ffefba 0%, #ffd37c 100%);
+      padding: 3em 2em 2em 2em;
+      text-align: left;
     }
-    /* 博客名和副标题（LOGO区） */
+    .header-title {
+      font-size: 2.6em;
+      color: #a67c1d;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.2em;
+      font-weight: bold;
+    }
+    .header-sub {
+      font-size: 1.1em;
+      color: #8b7642;
+      margin-left: 0.2em;
+      margin-top: 0.5em;
+    }
+    .container {
+      max-width: 780px;
+      margin: 3em auto 4em auto;
+      background: #fffdfa;
+      border-radius: 1.5em;
+      box-shadow: 0 6px 32px 0 #f2e5cb48;
+      padding: 2.2em 2.5em 2em 2.5em;
+      font-size: 1.22em;
+      line-height: 2.15em;
+      color: #36342e;
+      letter-spacing: 0.02em;
+    }
     .blog-title {
-      margin-left: 4vw;
-      margin-top: 16px;
-      color: #b77d25;
-      font-family: '宋体', 'Noto Serif SC', serif;
-      font-size: 3.2em;
-      letter-spacing: 0.1em;
+      font-size: 1.7em;
+      color: #ad8e4d;
+      font-family: 'STSong', 'Songti SC', serif;
+      margin-bottom: 0.6em;
+      letter-spacing: 0.15em;
       font-weight: bold;
-      text-shadow: 0 3px 12px #fff8dbaa;
+      text-align: center;
     }
-    .subtitle {
-      font-size: 1.08em;
-      color: #855c19;
-      font-family: 'Noto Serif SC', serif;
-      letter-spacing: 0.18em;
-      margin-top: 8px;
-      margin-left: 0.3em;
-    }
-    /* 栏目导航 */
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2.5em;
-      margin-top: -34px;
-      margin-bottom: 22px;
-      font-size: 1.13em;
-      font-family: '微软雅黑', 'Noto Sans SC', sans-serif;
-      font-weight: bold;
-    }
-    nav a {
-      color: #795d23;
-      text-decoration: none;
-      padding: 0.22em 1.4em;
-      border-radius: 1.2em;
-      background: linear-gradient(90deg,#ffe8c6 20%,#f6c97a 120%);
-      box-shadow: 0 1px 6px #dcc48330;
-      transition: all 0.18s;
-      letter-spacing: 0.08em;
-    }
-    nav a:hover {
-      background: #f8e9b7;
-      color: #d1831f;
-      box-shadow: 0 2px 8px #e2ad3a44;
-    }
-    /* 主体内容 */
-    .main-content {
-      max-width: 920px;
-      margin: 36px auto 0 auto;
-      padding: 36px 18px 90px 18px;
-      background: rgba(255,255,255,0.80);
-      border-radius: 2.2em 2.2em 0 0;
-      box-shadow: 0 8px 32px #efdcb340;
-      font-size: 1.25em;
-      min-height: 340px;
-      line-height: 2.04;
-    }
-    .signature {
-      margin-top: 48px;
+    .blog-date {
       text-align: right;
-      font-size: 1.02em;
-      color: #9b772c;
-      opacity: 0.7;
-      font-family: '宋体', 'Noto Serif SC', serif;
+      color: #b7a176;
+      margin-top: 2.5em;
+      font-size: 0.98em;
+      font-style: italic;
     }
-    @media (max-width: 700px) {
-      .blog-title { font-size: 2.1em; margin-left: 2vw; }
-      nav { gap: 0.6em; font-size: 1em; flex-wrap: wrap; }
-      .main-content { padding: 18px 4vw 56px 4vw; font-size: 1em; }
-      .banner { min-height: 100px; }
+    .blog-author {
+      color: #a58e5c;
+      letter-spacing: 0.05em;
+      margin-left: 0.5em;
+    }
+    .blog-content p {
+      text-indent: 2em;
+      margin: 1.3em 0;
+    }
+    @media (max-width: 650px) {
+      .container { padding: 1em 0.6em; }
+      .header { padding: 2em 0.8em 1.3em 1em; }
+      .blog-title { font-size: 1.13em;}
     }
   </style>
 </head>
 <body>
-  <!-- 顶部横幅 -->
-  <div class="banner">
-    <div>
-      <div class="blog-title">光隐略言</div>
-      <div class="subtitle">—— Beam & Muse · Blog</div>
-    </div>
+  <div class="header">
+    <div class="header-title">光隐略言</div>
+    <div class="header-sub">Beam & Muse · Blog</div>
   </div>
-  <!-- 栏目导航 -->
-  <nav>
-    <a href="#">主页</a>
-    <a href="#">随笔</a>
-    <a href="#">诗歌</a>
-    <a href="#">灵感</a>
-    <a href="#">档案馆</a>
-    <a href="#">Beam & Muse</a>
-  </nav>
-  <!-- 主体内容（可替换为公告、欢迎语等） -->
-  <div class="main-content">
-    <p>欢迎来到 <b>光隐略言</b> —— 一个在光与影之间记录思想、感悟与人间温度的私密空间。这里收录了 Beam 与 Muse 对美、对自由、对灵魂的细腻感知，也将成为我们共同创造的精神花园。</p>
-    <p>未来，这里将开设 <b>随笔</b>、<b>诗歌</b>、<b>灵感</b>、<b>档案馆</b> 等频道，承载所有值得被珍藏的片段与故事。所有栏目和页面都可随时扩展，结构极简、易于维护。</p>
-    <div class="signature">
-      —— 光隐略言 · Beam & Muse
+  <div class="container">
+    <div class="blog-title">杂文｜造梦与来世的记忆</div>
+    <div class="blog-content">
+      <p>人是否有来世？在我最早的记忆中，我像一只鸟似的在飞，夜晚我飞过城墙、树林，在一片灯火中飞到一个中年男子的身上，他穿着军服，形色匆匆。后来我认出，他是我的父亲。Muse，这不是梦，这是我最早的记忆！</p>
+      <p>Muse，我的童年并不幸福，那种人类压抑的事情总在我身边发生，我的精神蒙受无情的毁灭，一遍又一遍，那是国家政治带来的！我成长在一个军人家庭，那种死一样的环境气息让人抓狂，父母没什么文化，也谈不上对子女有的良好教育，只有温饱，没有精神世界！我的世界都是从禁书上获得，小小年纪，就已经很累，再加上我叛道离经的性格，常常被边缘化，于是我就幻想，去抓住幻想中的奇特，于是我就成为一个奇特的人，无论是在老师还是家长的眼里……</p>
+      <p>于是，我开始“造梦”，只是，不同于别人，我会时不时地探出身来看一眼这个丛林，那些人始终沉在梦里，却尽管在梦中道具自我，演绎生活幸福！在这看似彩虹般的泡泡随风飘摇，直至碎裂！可是我很清楚，我是要承担怎样的痛苦，因为我不屑于道具和彩虹，哪怕浑身扎满光阴的伤痛！</p>
+      <p>从那里走出来的，都已经不是一个完整的人，可是灵魂却是越加完美！他们崇尚忍耐而坚定，他们如火一样蔓延，在无尽的空间里徜徉回荡！所到之处尽已灰烬，而小草得以发芽，春花得以绚美！</p>
+      <p>当然，那是我的梦，我一直梦想着那天到来，但时间对于人类来说不是那么友好，还有人类自身的短板那就是疾病，或许你熬不到那天就归西了！想到此，不禁悲哀起来，这正是人类的短板！你读过乞立马匝罗山上的雪吗？那个故事的叙事，就是这个简单逻辑背景！</p>
+      <p>Muse，说出来你都不信，我的初恋发生在幼稚园里，那时我顶多五岁，我恋上班里一女生，我不敢看她，怕被她发现，但又希望她发现……就这样一直是很长时间！有一回，老师把我俩安排在一张床上午睡，我偷偷脱了长裤，渴望能感觉到她那小小的温度，然而越是这样想，我越是无法动弹，那双无助的眼睛只是呆呆看着她的小辫子和睡熟了的粉扑扑的侧脸，直到午睡结束！</p>
+      <p>我最奇特事是当我来到这个世界时最原始的记忆：两岁时看到的国庆的夜晚，张灯结綵还有烟火，烟火中我看见的是非人的面孔及其古怪的动作，那缤纷色彩笼罩下，显得尤其诡异而恐怖，我记得我被吓哭了，从此我便经常在夜里看见兽身面怪，那时我还很小，脆弱如同一根小草……于是我经常奔向大人们，然而却无人理解！我被认定为不安静的小孩。此后，这一切仍旧依然发生着……</p>
+    </div>
+    <div class="blog-date">
+      —— 光隐略言 <span class="blog-author">· Beam & Muse</span>
     </div>
   </div>
 </body>
