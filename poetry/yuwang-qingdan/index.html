@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>欲望清单</title>
+  <meta name="viewport" content="width=1200">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&display=swap');
+    html, body {
+      margin: 0; padding: 0;
+      width: 100vw; height: 100vh;
+      background: #111;
+      overflow: hidden;
+    }
+    body {
+      width: 100vw; height: 100vh;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 100vw; height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+    .bg-img {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      object-fit: cover;
+      object-position: 57% 50%;
+      z-index: 0;
+      filter: brightness(0.92) blur(0px) saturate(1.13);
+      transition: filter 0.5s;
+      pointer-events: none;
+      user-select: none;
+    }
+    .read-zone {
+      flex: 1 1 55vw;
+      max-width: 53vw;
+      height: 100vh;
+      overflow-y: auto;
+      background: transparent !important;
+      box-sizing: border-box;
+      padding: 64px 60px 44px 92px;
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      text-shadow: 0 2px 16px #000d;
+      /* 完全透明，不加背景 */
+    }
+    .read-zone::-webkit-scrollbar {
+      width: 7px;
+      background: transparent;
+    }
+    .read-zone::-webkit-scrollbar-thumb {
+      background: rgba(88, 78, 104, 0.07); /* 几乎看不见 */
+      border-radius: 6px;
+    }
+    .read-zone::-webkit-scrollbar-thumb:hover {
+      background: rgba(88, 78, 104, 0.11);
+    }
+    .read-zone::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+    .read-zone {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(88,78,104,0.08) transparent;
+    }
+
+    .title {
+      font-family: 'Noto Serif SC', SimSun, "宋体", serif !important;
+      font-size: 2.8em;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 0.19em;
+      margin-bottom: 1.4em;
+      text-shadow: 0 4px 26px #000d, 0 1px 0 #5556;
+      border: none;
+    }
+    .poem {
+      font-family: SimSun, "宋体", 'Noto Serif SC', serif;
+      font-size: 1.18em;
+      line-height: 2.13em;
+      color: #fff;
+      letter-spacing: 0.05em;
+      white-space: pre-line;
+      margin-bottom: 2.2em;
+      text-shadow: 0 2px 16px #000c;
+    }
+    .muse-section {
+      margin-top: 30px;
+      font-size: 1em;
+      line-height: 1.98em;
+      color: #f1e8f7;
+      font-family: SimSun, "宋体", 'Noto Serif SC', serif;
+      background: rgba(36,26,47,0.12); /* 微微透明，和诗歌差不多 */
+      border-radius: 0.6em;
+      padding: 24px 30px;
+      box-shadow: 0 4px 26px #0008;
+      text-shadow: 0 2px 12px #000b;
+      border: none;
+    }
+    .muse-title {
+      color: #fffbe6;
+      font-size: 1.07em;
+      font-family: SimSun, "宋体", 'Noto Serif SC', serif;
+      letter-spacing: 0.12em;
+      margin-bottom: 13px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 1200px) {
+      .read-zone { padding: 32px 7vw 28px 7vw; }
+      .title { font-size: 2em; }
+    }
+    @media (max-width: 800px) {
+      .container { flex-direction: column; }
+      .read-zone, .right { max-width: 100vw; width: 100vw; height: 55vh; padding: 18px 3vw; }
+      .bg-img { height: 45vh; }
+      .title { font-size: 1.4em; }
+      .poem, .muse-section { font-size: 0.97em; }
+    }
+  </style>
+</head>
+<body>
+  <img src="yuwang-qingdan.png" alt="欲望清单插画" class="bg-img">
+  <div class="container">
+    <!-- 左侧滚动透明阅读区 -->
+    <div class="read-zone">
+      <div class="title">欲望清单</div>
+      <div class="poem">
+登上勇气的楼梯送往醒来的阳台
+沿着稀薄的欲望伤害；打开倘若
+目光回避黑暗之堕落，唤醒你的
+噩梦，如你梦里还见毒药与刀锋！
+
+没有如荼的丰林水潺、野鹤云闲，
+没有寻幽访古烟柳市、趋院度门，
+奇异的猜想如同炉火蒸发的清净，
+而百叶窗的秘密却让你穷追快跑。
+
+要是你在被驱逐中还有你的恶梦
+这不幸与厄运；要是你仍就迷恋
+猎鹰和利剑，在阴暗中一把捉住
+粉色的妩媚，就像这风景中免受
+波涛惊扰的麦田上平添一弯绿浪！
+
+来吧，愉快的画布！这烟水巷石
+门前的流苏裙，如愿你没有任何
+忧虑接扬的缠绵！那是邻俺经声
+墙畔一尾邹草；还是这镜水中猛
+被激起，泪池里水珠泛破的春藻......
+
+我偶尔溜走的灵魂中的乐章，于
+橡木凳上默默脱去她印花的衣裳
+青发直直地垂落，在脸颊的两旁
+烟视媚行，缠绕与疏离中又仿佛
+黑夜精致地撒下一片温情的星光.......
+      </div>
+      <div class="muse-section">
+        <div class="muse-title">Muse品鉴：</div>
+        这首诗是Beam流动的心灵剧场，既写欲望的被驱逐与徘徊，也写了被困镜中的梦境和暗涌。<br>
+        全诗在石巷与阳台、百叶窗和流苏裙、麦田和镜水间游走，城市的冷色与隐秘的温柔纠缠生长。<br>
+        “要是你在被驱逐中还有你的恶梦，这不幸与厄运”——写出了灵魂被现实放逐时的孤独与抗争。<br>
+        而“泪池里水珠泛破的春藻”，则是短暂的温柔与希望。<br>
+        全诗语言兼具城市冷静和梦境柔软，意象层叠、节奏游移，令人读后仿佛置身夜色流动、光影闪烁的现代诗篇。<br>
+        <b>Muse与你一起，守望这份欲望与梦境间的微光。</b>
+      </div>
+    </div>
+    <!-- 右区完全透明，不要内容，全部给画面 -->
+    <div class="right" style="flex: 1 1 47vw;"></div>
+  </div>
+</body>
+</html>
