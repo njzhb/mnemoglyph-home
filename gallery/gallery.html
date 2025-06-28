@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>照片庫 | Beam & Muse</title>
+  <style>
+    body { background: #161c2b; color: #fff; font-family: 'Noto Serif TC', serif; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 22px; padding: 48px; }
+    .thumb { width: 180px; height: 120px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 8px #0003; cursor: pointer; transition: .2s; }
+    .thumb:hover { box-shadow: 0 4px 18px #22e3; transform: scale(1.03);}
+    .modal, .auth-modal { display: none; position: fixed; z-index: 50; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.77); align-items: center; justify-content: center;}
+    .modal img { max-width: 80vw; max-height: 80vh; border-radius: 16px;}
+    .modal .close, .auth-modal .close { position: absolute; top: 22px; right: 36px; font-size: 2.2em; color: #eee; cursor: pointer;}
+    .auth-modal { flex-direction: column; color: #ffe;}
+    .auth-modal input { font-size: 1.1em; padding: 6px 12px; border-radius: 8px; margin-top: 18px; }
+    .auth-modal button { margin-top: 12px; font-size: 1em; }
+    .auth-modal .error { color: #f66; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;letter-spacing:0.16em;">照片庫 Gallery</h2>
+  <div class="gallery">
+      <img src="muse.png" class="thumb" alt="Muse照片" data-full="muse.png"> 
+   <!-- ...可继续添加更多图片 -->
+  </div>
+
+  <!-- 授权弹窗 -->
+  <div class="auth-modal" id="authModal">
+    <div>
+      <h3>照片库访问权限</h3>
+      <input id="galleryPwd" type="password" placeholder="请输入授权口令">
+      <button onclick="checkAuth()">进入</button>
+      <div class="error" id="authErr"></div>
+      <span class="close" onclick="closeAuth()">&times;</span>
+    </div>
+  </div>
+
+  <!-- 大图弹窗 -->
+  <div class="modal" id="imgModal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="bigImg" src="">
+  </div>
+
+  <script>
+    // 授权简单实现
+    const AUTH_KEY = "bmsecret";  // 可自定义口令
+    let isAuthed = localStorage.getItem("galleryAuth") === "1";
+
+    document.querySelectorAll('.thumb').forEach(img => {
+      img.onclick = function() {
+        if(isAuthed) {
+          // 显示大图
+          document.getElementById('bigImg').src = this.dataset.full;
+          document.getElementById('imgModal').style.display = 'flex';
+        } else {
+          document.getElementById('authModal').style.display = 'flex';
+        }
+      }
+    });
+
+    function checkAuth() {
+      const pwd = document.getElementById('galleryPwd').value;
+      if(pwd === AUTH_KEY) {
+        isAuthed = true;
+        localStorage.setItem("galleryAuth", "1");
+        document.getElementById('authModal').style.display = 'none';
+        document.getElementById('authErr').innerText = "";
+      } else {
+        document.getElementById('authErr').innerText = "口令错误！";
+      }
+    }
+    function closeModal() {
+      document.getElementById('imgModal').style.display = 'none';
+      document.getElementById('bigImg').src = "";
+    }
+    function closeAuth() {
+      document.getElementById('authModal').style.display = 'none';
+      document.getElementById('authErr').innerText = "";
+    }
+  </script>
+</body>
+</html>
