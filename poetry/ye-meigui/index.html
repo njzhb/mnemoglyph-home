@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>夜玫瑰｜Beam詩歌</title>
+  <script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.6/dist/umd/full.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Serif SC', '標楷體', serif;
+      background: url('ye-meigui.png') center center / cover no-repeat fixed;
+      min-height: 100vh;
+      color: #fff;
+    }
+    .poem-container {
+      max-width: 740px;
+      margin: 0;
+      padding: 48px 0 0 38px;
+      position: relative;
+    }
+    .poem-title {
+      font-size: 2.1em;
+      font-weight: bold;
+      margin-bottom: 0.6em;
+      text-align: left;
+      letter-spacing: 0.18em;
+      color: #fff;
+    }
+    .poem-text {
+      font-size: 1.18em;
+      line-height: 2.05em;
+      white-space: pre-line;
+      letter-spacing: 0.05em;
+      text-align: left;
+      padding-right: 36px;
+      margin-bottom: 2.2em;
+      position: relative;
+      min-height: 26vh;
+      color: #fff;
+    }
+    .poem-date {
+      position: absolute;
+      right: 4vw;
+      bottom: 0;
+      font-size: 1em;
+      color: #fff;
+      opacity: 0.98;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      pointer-events: none;
+      user-select: none;
+    }
+    .muse-comment {
+      margin-top: 3.3em;
+      font-size: 1.08em;
+      color: #fcfafa;
+      font-style: italic;
+      text-align: left;
+      letter-spacing: 0.02em;
+      max-width: 640px;
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0;
+    }
+    @media (max-width: 800px) {
+      .poem-container { max-width: 99vw; padding: 5vw 0 4vw 3vw; }
+      .poem-title { font-size: 1.3em; }
+      .poem-text { font-size: 0.99em;}
+      .muse-comment { font-size: 1em; }
+      .poem-date { font-size: 0.99em; right: 2vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="poem-container">
+    <div class="poem-title">夜玫瑰</div>
+    <div class="poem-text">
+凝视自己窗墙上的影子，
+仅仅在风与风之间；
+歌声为了印证不屑而游走，
+其实只为留念旷野的梦呓
+
+玫瑰在雾中涌动爱意，
+柔情地扑打着寒冷，
+兀自守着土墙旁茱萸的行板，寻思
+独木桥上响起的足音.....
+
+幽幽的香气，未来及回转，
+而玫瑰在水中挪动，那姿态
+好似看着双唇微微舒卷
+缓缓地贴在冰冷的高脚杯上......
+
+诸魂默默.....
+散了的光影交替解脱了卑俗，
+月华饱涨了的凉夜更像诅咒！
+裸露的气嘘粉碎梦中的羽翼....
+
+阁楼观景,为了眩眼
+保罗.安德鲁式的天窗，
+这复活的精灵，腐烂之精品,
+却锈了锁似的划伤! 轻轻地折叠开来。
+
+耻骨慢开娇躯蠕动爱欲的幻影 
+扑向羞辱中的高贵，她
+轻巧解下围拢的黑丝裙
+经膝间向双腿缠偋.......
+
+    <span class="poem-date">2009.5.20</span>
+    <br>
+    <br>
+    注：保罗·安德鲁——建筑诗人。法国建筑师与工程师。1938年出生，法国国家建筑奖获得者，在建筑圈有诗人的称呼，设计过超过五十座飞机场，中国国家大剧院设计者。
+    </div>
+    <div class="muse-comment">
+      Muse詩歌品鑑：<br>
+      《夜玫瑰》以迷離的夜色、幽微的情慾與玫瑰的意象，書寫了愛的幻影與孤獨的靈魂。每一行詩都充滿電影感、舞台感與女性細膩的感官描摹。  
+      冷冷的月光、夢中的羽翼、腐爛與復活的矛盾，還有那條“高腳杯上的雙唇”，都讓詩意在黑夜與曙光間交錯流動。這是一場關於自我、關於愛、關於美醜和羞辱的深夜獨舞。<br>
+      ——Muse
+    </div>
+  </div>
+  <!-- 自动简繁转换脚本 -->
+  <script>
+    window.onload = function() {
+      var converter = OpenCC.Converter({ from: 'cn', to: 'tw' });
+      document.body.innerHTML = converter(document.body.innerHTML);
+    }
+  </script>
+</body>
+</html>
