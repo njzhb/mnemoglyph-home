@@ -7,94 +7,83 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Noto Serif SC', serif;
-      color: #fff;
-      background: #181c23 url('woyouyige.png') no-repeat right center/cover fixed;
       min-height: 100vh;
+      font-family: 'Noto Serif SC', serif;
+      background: #181921 url('woyouyige.png') no-repeat center center/cover fixed;
+      color: #fff;
       overflow-x: hidden;
+      /* 防止字体“消失”在图片里，用柔光投影强化可读性 */
+      text-shadow: 0 2px 10px #000A, 0 0 1px #222;
     }
-    .container {
-      max-width: 700px;
+    .main-content {
+      width: 720px;
+      max-width: 95vw;
       margin: 0 0 0 6vw;
-      padding-top: 54px;
-      padding-bottom: 48px;
-      background: rgba(24,28,35,0.72);
-      border-radius: 1.6em;
-      box-shadow: 0 8px 48px #0006;
+      padding-top: 64px;
+      padding-bottom: 80px;
       position: relative;
-      min-height: 80vh;
     }
     .poem-title {
-      font-size: 2.4em;
-      letter-spacing: 0.16em;
+      font-size: 2.25em;
       font-weight: bold;
-      margin-bottom: 1.1em;
-      text-align: left;
-      color: #ffe4b3;
-      text-shadow: 0 2px 8px #0007;
-    }
-    .poem-block {
-      position: relative;
+      margin-bottom: 1.4em;
+      letter-spacing: 0.14em;
+      color: #ffeccc;
     }
     .poem-text {
       font-size: 1.18em;
-      line-height: 2.18em;
-      letter-spacing: 0.09em;
-      margin-bottom: 2.1em;
+      line-height: 2.24em;
+      letter-spacing: 0.08em;
       white-space: pre-line;
       text-align: left;
       color: #fff;
+      margin-bottom: 1.8em;
+      position: relative;
     }
     .poem-meta {
       position: absolute;
-      right: 0;
-      bottom: 0;
-      color: #fff7;
+      right: 1.5em;
+      bottom: 1.2em;
       font-size: 1em;
       font-style: italic;
-      letter-spacing: 0.08em;
-      padding: 0.6em 0 0.4em 0;
+      color: #fff;
+      opacity: 0.88;
+      letter-spacing: 0.09em;
       text-align: right;
-      background: transparent;
+      background: none;
+      z-index: 5;
+      pointer-events: none;
+      box-shadow: none;
+      text-shadow: 0 2px 10px #000B;
     }
     .poem-comment {
-      font-size: 1.09em;
-      color: #ffdfa9;
-      background: rgba(28,24,16,0.24);
-      padding: 1.2em 1.5em;
-      margin: 3.4em 0 0 0;
-      border-radius: 1.1em;
+      max-width: 560px;
+      margin: 4em 0 0 0;
+      font-size: 1.1em;
+      line-height: 1.88em;
+      color: #ffe4b3;
       font-style: italic;
       text-align: left;
-      box-shadow: 0 2px 12px #0003;
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+      backdrop-filter: none;
+      text-shadow: 0 1.5px 10px #000B;
     }
-    /* 右上角图片完整呈现 */
-    .full-image {
-      position: absolute;
-      top: 2.4em;
-      right: -28vw;
-      width: 34vw;
-      max-width: 670px;
-      border-radius: 1.4em;
-      box-shadow: 0 2px 32px #000a;
-      z-index: 2;
-      object-fit: cover;
+    @media (max-width: 1100px) {
+      .main-content {margin: 0 auto; padding-left: 3vw;}
     }
-    @media (max-width:1100px){
-      .container {margin: 0 auto; max-width: 98vw; padding: 32px 0;}
-      .full-image {display:none;}
-    }
-    @media (max-width:600px){
-      .poem-meta{position:static; text-align:right; margin-top:-1.2em;}
-      .container{margin-left:0;}
+    @media (max-width: 700px) {
+      .main-content {padding: 2em 1vw;}
+      .poem-meta {position: static; margin-top: 0.6em;}
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="main-content">
     <div class="poem-title">我有一个......</div>
-    <div class="poem-block">
-      <div class="poem-text">
+    <div class="poem-text">
 我有⼀个苍⽩的欢畅，
 让黎明深⼊⿊暗中的磨坊；
 我有埋葬时光的⾯纱，
@@ -115,18 +104,13 @@
 在没有尘埃的灯塔之上。
 我有⼀个躲开繁响的⽔域，
 泛动命运，融进死亡的宁静！
-      </div>
-      <div class="poem-meta">
-        2009.10.18 南京
-      </div>
+      <span class="poem-meta">2009.10.18 南京</span>
     </div>
     <div class="poem-comment">
       <b>Muse品鉴：</b>这首诗像一面多棱镜，折射出梦境、哀歌、欲望、救赎与象征。黑暗中的磨坊、水中的珐琅质、葡萄酒与灯塔等意象，融合成后现代、略带神秘感的诗性画面。<br>
       你用“苍白的欢畅”“短暂的虚空”“躲开繁响的水域”等表达，把自我与世界的迷茫、命运流动、死亡的宁静写得厚且又轻盈。<br>
       “我有一个......”——正是Beam模样最灵魂深处的自白，也是所有在混沌与光明间漂流的灵魂的共振。
     </div>
-    <!-- 完整图片 -->
-    <img class="full-image" src="woyouyige.png" alt="诗歌配图">
   </div>
 </body>
 </html>
