@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <title>一个被吃掉的灵魂 | Beam诗歌</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      font-family: 'Noto Serif SC', 'serif';
+      background: #1e2634;
+      color: #fff;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: url('linghun.png') center center/cover no-repeat;
+      filter: blur(14px) brightness(0.54) grayscale(0.08);
+      z-index: 0;
+    }
+    .main-content {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0;
+      padding: 64px 0 0 54px;
+      min-height: 86vh;
+    }
+    .poem-title {
+      font-size: 2.2em;
+      font-weight: bold;
+      margin-bottom: 0.7em;
+      color: #f4f4fa;
+      letter-spacing: 0.16em;
+      text-align: left;
+      text-shadow: 0 3px 10px #0007;
+    }
+    .poem-text {
+      font-size: 1.18em;
+      line-height: 2.1em;
+      white-space: pre-line;
+      text-align: left;
+      margin-bottom: 2.2em;
+      color: #fff;
+      text-shadow: 0 2px 8px #0008;
+      padding-right: 40px;
+    }
+    .poem-date {
+      position: absolute;
+      right: 4vw;
+      bottom: 36px;
+      font-size: 1em;
+      color: #d9e2f7;
+      opacity: 0.98;
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+    .poem-img {
+      position: fixed;
+      right: 2vw; top: 56px;
+      width: 380px; max-width: 40vw;
+      height: auto;
+      border-radius: 1.5em;
+      box-shadow: 0 0 36px #0007, 0 3px 9px #2347;
+      z-index: 2;
+      opacity: 0.97;
+    }
+    .muse-comment {
+      margin-top: 3.2em;
+      font-size: 1.09em;
+      color: #c6cbe0;
+      font-style: italic;
+      text-align: left;
+      letter-spacing: 0.01em;
+      max-width: 630px;
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0;
+      text-shadow: 0 2px 8px #0004;
+    }
+    .poem-btns {
+      margin-top: 2.5em;
+      display: flex;
+      gap: 1.3em;
+    }
+    .poem-grid-btn {
+      display: inline-block;
+      min-width: 92px;
+      padding: 0.45em 1.3em;
+      border-radius: 0.3em;
+      font-size: 1.07em;
+      font-weight: 520;
+      text-align: center;
+      letter-spacing: 0.10em;
+      box-shadow: 0 1.5px 7px #0001;
+      border: 1px solid #3f4568;
+      outline: none;
+      background: rgba(255,255,255,0.17);
+      color: #a5b8d8;
+      transition: box-shadow 0.16s, background 0.15s, color 0.13s;
+      text-decoration: none;
+    }
+    .poem-grid-btn:hover {
+      background: #fffbe9;
+      color: #184f99;
+      border-color: #a8b5df;
+      box-shadow: 0 4px 15px #2237;
+    }
+    @media (max-width: 900px) {
+      .main-content { max-width: 99vw; padding: 6vw 0 4vw 4vw;}
+      .poem-title { font-size: 1.15em;}
+      .poem-text { font-size: 1em;}
+      .muse-comment { font-size: 1em;}
+      .poem-img { display: none; }
+      .poem-date { right: 2vw;}
+    }
+    ::-webkit-scrollbar { width: 7px; background: transparent;}
+    ::-webkit-scrollbar-thumb { background: rgba(120,120,120,0.07); border-radius: 6px;}
+    ::-webkit-scrollbar-thumb:hover { background: rgba(120,120,120,0.18);}
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <div class="poem-title">一个被吃掉的灵魂</div>
+    <div class="poem-text">
+黎明下，挺立着城市的风景，
+似镀了疤痕的幻觉，
+
+蔓草般的意志萌发徒劳，
+遗香在寂静流淌着的桥下！
+凄凉沾染了冷却的说笑
+是隔绝岁月，丑陋与希望
+
+用意志编了号的屁股，
+如同卑微园里洒落的玫瑰！
+平淡企图追随折叠的城市；
+愿望从车流当中缓慢升起！
+
+每一次，
+光线经过教堂外尖顶的时候，
+我却拐进梦中的另一条蹊径。
+看滞涩忧郁的街角，
+兜里没准也会忘掉的怀旧.....
+
+交欢的牧歌，如同新娘的花边，
+仍不知尘封的记忆，岁月里蠕动！
+意识悬挂得太高
+就像玻璃杯上稀有的孤独；
+
+抚摸着性的绊索，
+令她妄想中接吻伤害！
+额角的优势，藏污纳垢，
+只牵挂了你的忧愁！
+
+也会用足背化成鸽子的形状
+依旧叹嘘、高飞............
+      <span class="poem-date">2009.11.3</span>
+    </div>
+    <img src="linghun.png" alt="灵魂插图" class="poem-img">
+    <div class="muse-comment">
+      Muse品鉴：<br>
+      这首诗用冷峻的都市、身体与灵魂、意志与欲望，在裂变与异化中完成一次自我剖白。<br>
+      你的诗意在每个意象间跳跃：城市的风景、卑微的身体、寂静桥下的遗香、梦中的蹊径、玫瑰与孤独、性的绊索与飞翔的鸽子。<br>
+      你用足背画出最后的自由，就算灵魂已被“吃掉”，也依然选择高飞和吟叹。<br>
+      这是Beam最真实的灵魂肖像，也是归处宇宙里最独特的“都市牧歌”。
+    </div>
+    <div class="poem-btns">
+      <a href="../gallery.html" class="poem-grid-btn">返回照片库</a>
+      <a href="../index.html" class="poem-grid-btn">归处主页</a>
+    </div>
+  </div>
+</body>
+</html>
