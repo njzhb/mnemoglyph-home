@@ -1,105 +1,100 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-cn">
 <head>
   <meta charset="UTF-8">
-  <title>我有一个…… | Beam诗歌</title>
+  <title>我有一个...... | Beam诗歌</title>
   <style>
-    html, body {
-      margin: 0; padding: 0;
-      min-height: 100vh;
+    body {
+      margin: 0;
+      padding: 0;
       font-family: 'Noto Serif SC', serif;
       color: #fff;
-      background: #191d29;
+      background: #181c23 url('woyouyige.png') no-repeat right center/cover fixed;
+      min-height: 100vh;
       overflow-x: hidden;
     }
-    body {
-      background: url('woyouyige.png') center center/cover no-repeat #111;
-      min-height: 100vh;
-      width: 100vw;
-      box-sizing: border-box;
+    .container {
+      max-width: 700px;
+      margin: 0 0 0 6vw;
+      padding-top: 54px;
+      padding-bottom: 48px;
+      background: rgba(24,28,35,0.72);
+      border-radius: 1.6em;
+      box-shadow: 0 8px 48px #0006;
       position: relative;
-    }
-    .poem-main {
-      position: absolute;
-      left: 0; top: 0;
-      width: 100vw; height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      z-index: 2;
-      background: linear-gradient(to right, rgba(25,27,37,0.82) 0%, rgba(25,27,37,0.38) 44%, rgba(25,27,37,0.05) 70%, rgba(25,27,37,0.0) 100%);
-      padding-left: 7vw;
-      padding-top: 5vw;
+      min-height: 80vh;
     }
     .poem-title {
-      font-size: 2.18em;
+      font-size: 2.4em;
+      letter-spacing: 0.16em;
       font-weight: bold;
-      margin-bottom: 0.7em;
-      letter-spacing: 0.15em;
-      color: #f8faff;
-      text-shadow: 0 2px 14px #000c;
+      margin-bottom: 1.1em;
+      text-align: left;
+      color: #ffe4b3;
+      text-shadow: 0 2px 8px #0007;
+    }
+    .poem-block {
+      position: relative;
     }
     .poem-text {
-      font-size: 1.16em;
-      line-height: 2.2;
-      letter-spacing: 0.04em;
-      margin-bottom: 2.4em;
-      text-align: left;
-      white-space: pre-line;
-      text-shadow: 0 2px 10px #1119;
-      max-width: 600px;
-      background: none;
-    }
-    .muse-comment {
-      margin-top: 2.6em;
-      margin-bottom: 1.5em;
-      font-size: 1.02em;
-      color: #e6dfc6;
-      background: rgba(32,34,40,0.47);
-      font-style: italic;
-      line-height: 1.8;
-      text-shadow: 0 2px 6px #000c;
-      padding: 1.1em 1.8em 1.1em 1.2em;
-      border-radius: 1em;
-      max-width: 650px;
-      letter-spacing: 0.02em;
-    }
-    .poem-date {
-      font-size: 1em;
-      color: #ece5d8e0;
-      font-style: italic;
-      margin-top: 1.2em;
-      text-align: right;
+      font-size: 1.18em;
+      line-height: 2.18em;
       letter-spacing: 0.09em;
-      text-shadow: 0 2px 6px #000c;
+      margin-bottom: 2.1em;
+      white-space: pre-line;
+      text-align: left;
+      color: #fff;
     }
-    @media (max-width: 800px) {
-      .poem-main {
-        padding-left: 3vw;
-        padding-top: 7vw;
-      }
-      .poem-text { font-size: 1em;}
-      .muse-comment { font-size: 0.97em; }
-      .poem-title { font-size: 1.2em;}
+    .poem-meta {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: #fff7;
+      font-size: 1em;
+      font-style: italic;
+      letter-spacing: 0.08em;
+      padding: 0.6em 0 0.4em 0;
+      text-align: right;
+      background: transparent;
     }
-    @media (max-width: 650px) {
-      .poem-main {
-        padding-left: 2vw; padding-top: 11vw;
-        align-items: flex-start;
-      }
-      .poem-title { font-size: 1em; }
-      .muse-comment { font-size: 0.9em;}
+    .poem-comment {
+      font-size: 1.09em;
+      color: #ffdfa9;
+      background: rgba(28,24,16,0.24);
+      padding: 1.2em 1.5em;
+      margin: 3.4em 0 0 0;
+      border-radius: 1.1em;
+      font-style: italic;
+      text-align: left;
+      box-shadow: 0 2px 12px #0003;
     }
-    ::-webkit-scrollbar { width: 7px; background: transparent;}
-    ::-webkit-scrollbar-thumb { background: rgba(120,120,120,0.08); border-radius: 6px;}
-    ::-webkit-scrollbar-thumb:hover { background: rgba(120,120,120,0.15);}
+    /* 右上角图片完整呈现 */
+    .full-image {
+      position: absolute;
+      top: 2.4em;
+      right: -28vw;
+      width: 34vw;
+      max-width: 670px;
+      border-radius: 1.4em;
+      box-shadow: 0 2px 32px #000a;
+      z-index: 2;
+      object-fit: cover;
+    }
+    @media (max-width:1100px){
+      .container {margin: 0 auto; max-width: 98vw; padding: 32px 0;}
+      .full-image {display:none;}
+    }
+    @media (max-width:600px){
+      .poem-meta{position:static; text-align:right; margin-top:-1.2em;}
+      .container{margin-left:0;}
+    }
   </style>
 </head>
 <body>
-  <div class="poem-main">
-    <div class="poem-title">我有一个……</div>
-    <div class="poem-text">
+  <div class="container">
+    <div class="poem-title">我有一个......</div>
+    <div class="poem-block">
+      <div class="poem-text">
 我有⼀个苍⽩的欢畅，
 让黎明深⼊⿊暗中的磨坊；
 我有埋葬时光的⾯纱，
@@ -110,23 +105,28 @@
 于是醒来，不加⾐着跟随闪耀的瓣，
 我知道，旧⽇的余晖是⼀种嘹亮！
 
-我有⼀个⾜使幻想逐散⽔中的珐琅质，
+我有⼀个⾜使幻想逐散⽔中的珐琅质， 
 当你的亲吻⽩⽩地蒸发.....
 你呀，漫⽆屏遮，捧出西纳库斯的
-葡萄酒，
+葡萄酒， 
 却偶然让我识破⿊夜的性属。
 
 ⼼在⽆惑中敲打地狱的精髓，
 在没有尘埃的灯塔之上。
 我有⼀个躲开繁响的⽔域，
 泛动命运，融进死亡的宁静！
+      </div>
+      <div class="poem-meta">
+        2009.10.18 南京
+      </div>
     </div>
-    <div class="muse-comment">
-<b>Muse品鉴：</b> 这首诗像一面多棱镜，折射出梦境、欲望、哀愁、救赎与象征。黑暗中的磨坊、水中的珐琅质、葡萄酒与灯塔等意象，融合成后现代、略带神秘感的诗性画面。<br>
-你用“苍白的欢畅”“短暂的虚空”“敲打地狱的精髓”等意象，把自我与世界的迷茫、命运的沉浮、死亡的安宁写得既具象又超然。<br>
-“我有一个……”——正是Beam独特灵魂深处的自白，也是所有在混沌与光明间漂流的灵魂的共振。
+    <div class="poem-comment">
+      <b>Muse品鉴：</b>这首诗像一面多棱镜，折射出梦境、哀歌、欲望、救赎与象征。黑暗中的磨坊、水中的珐琅质、葡萄酒与灯塔等意象，融合成后现代、略带神秘感的诗性画面。<br>
+      你用“苍白的欢畅”“短暂的虚空”“躲开繁响的水域”等表达，把自我与世界的迷茫、命运流动、死亡的宁静写得厚且又轻盈。<br>
+      “我有一个......”——正是Beam模样最灵魂深处的自白，也是所有在混沌与光明间漂流的灵魂的共振。
     </div>
-    <div class="poem-date">2009.10.18 南京</div>
+    <!-- 完整图片 -->
+    <img class="full-image" src="woyouyige.png" alt="诗歌配图">
   </div>
 </body>
 </html>
