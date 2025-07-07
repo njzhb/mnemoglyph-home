@@ -1,85 +1,153 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>诗歌 · 序文 | Beam & Muse</title>
+  <title>诗歌·序 | Mnemoglyph</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Beam & Muse 诗歌序文：反抗传统、创造自由、追求多层次诗歌之美。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0; padding: 0; min-height: 100vh;
-      background: url('jiangnan-bg.png') no-repeat center center fixed;
-      background-size: cover;
+      margin: 0;
+      min-height: 100vh;
       font-family: 'Noto Serif SC', serif;
-      color: #fff9e7;
-      overflow-x: hidden;
+      background: linear-gradient(120deg, #2e3869 0%, #b3b48b 100%);
+      color: #edeae2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      letter-spacing: 0.04em;
     }
-    .main-content {
-      width: 960px; max-width: 97vw; margin: 0 auto;
-      padding: 6vh 0 8vh 0;
-      position: relative;
-    }
-    .poem-intro {
-      font-size: 1.24em; line-height: 2.3em; letter-spacing: 0.08em;
-      text-shadow: 0 1px 6px #000b;
-      margin-bottom: 3em;
-      background: rgba(0,0,0,0.10);
-      border-radius: 16px;
-      padding: 2.2em 2em 2em 2em;
-    }
-    .poem-grid {
-      display: flex; flex-wrap: wrap;
-      gap: 1.2em 2.3em; justify-content: center;
-      margin: 2.2em auto 1.2em auto; max-width: 820px;
-    }
-    .poem-grid-btn {
-      background: rgba(255,255,255,0.07);
-      border-radius: 12px;
-      padding: 0.82em 2.2em;
-      color: #ffeede;
-      font-size: 1.16em;
-      text-decoration: none;
-      box-shadow: 0 1px 8px #0003;
-      letter-spacing: 0.12em;
-      border: 1px solid #eed7c6;
-      outline: none;
-      transition: background 0.22s, color 0.15s;
-      font-family: 'Noto Serif SC', serif;
-      margin-bottom: 1em;
-      display: inline-block;
+    header {
+      margin-top: 3rem;
       text-align: center;
     }
-    .poem-grid-btn:hover {
-      background: #fffbe922;
-      color: #c1622b;
-      border: 1.5px solid #dfac7c;
+    .logo {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: #fffae3;
+      background: linear-gradient(90deg, #ecd07c 30%, #b3b48b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.3em;
+      font-family: 'Noto Serif SC', serif;
     }
-    @media (max-width: 900px) {
-      .main-content { width: 99vw; }
-      .poem-grid { gap: 1em 1.3em; }
-      .poem-intro { font-size: 1em; padding: 1em 1em 1em 1em;}
+    .subtitle {
+      font-size: 1.15rem;
+      color: #a0a0a0;
+      margin-bottom: 1.5rem;
+      font-family: inherit;
+    }
+    main {
+      background: rgba(32,40,64,0.91);
+      border-radius: 20px;
+      box-shadow: 0 6px 40px rgba(22,28,56,0.14);
+      max-width: 700px;
+      padding: 2.5rem 2rem 2.2rem 2rem;
+      margin-bottom: 2.3rem;
+      font-size: 1.16rem;
+      line-height: 2.1;
+      color: #f7f5ee;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 0 1.2rem 0;
+      letter-spacing: 0.12em;
+      color: #ffe8a3;
+      font-family: inherit;
+    }
+    .footer {
+      margin: 2.5rem 0 1rem 0;
+      color: #bcbaba;
+      font-size: 0.97rem;
+      letter-spacing: 0.13em;
+      text-align: center;
+    }
+    /* 按钮区样式 */
+    .btn-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      justify-content: center;
+      margin: 2.3rem auto 0 auto;
+      max-width: 730px;
+    }
+    .poem-btn {
+      background: linear-gradient(90deg, #284274 65%, #e7c77b 100%);
+      color: #fffbea;
+      padding: 0.72em 2.1em;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.06rem;
+      box-shadow: 0 1px 10px rgba(20,24,40,0.09);
+      border: none;
+      outline: none;
+      margin-bottom: 0.15em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.16s cubic-bezier(.32,1.35,.51,1);
+      letter-spacing: 0.11em;
+    }
+    .poem-btn:hover {
+      background: linear-gradient(90deg, #e7c77b 20%, #305eb7 100%);
+      color: #222;
+      transform: translateY(-2px) scale(1.065);
+      box-shadow: 0 4px 24px rgba(30,50,100,0.18);
+    }
+    @media (max-width: 700px) {
+      main {padding: 1.3rem 0.7rem;}
+      h2 {font-size: 1.23rem;}
+      .logo {font-size: 1.23rem;}
+      .subtitle {font-size: 1rem;}
+      .btn-area {gap: 0.65rem;}
+      .poem-btn {padding: 0.6em 1.2em; font-size: 0.99rem;}
     }
   </style>
 </head>
 <body>
-  <div class="main-content">
-    <div class="poem-intro">
-      <!-- 这里放你的诗歌序言介绍内容，可以自由换成你原来的 -->
-      这里是Beam & Muse诗歌序文、诗歌理念、精神指引和灵魂回望...<br>
-      <br>
-      <b>“归处”</b>，是心灵与现实的双向归航。<br>
-      让每个诗友，在这里找到属于自己的回声与家路。
+  <header>
+    <div class="logo">Mnemoglyph · 诗歌序文</div>
+    <div class="subtitle">Beam & Muse · Poetry Preface</div>
+  </header>
+  <main>
+    <h2>诗歌·序</h2>
+    <div>
+      诗歌的表象，最初存在于诗人的意识之中。真正的诗人，往往偏离和忽略传统，于是他们在批判与丰富传统之间游走，最终的选择，总归是——否定与创造。<br><br>
+      正如罗丹所说：“真正的艺术家，总是冒着危险去推倒一切既存的偏见，而表现他自己所想到的东西。”也因此，“反抗因袭的艺术惰性”的湿热性格就这样产生了。<br><br>
+      我们无需深究所谓的“特质”，也不必去讨论内心与社会的融合与包容。我们只需看到，这世界上总有那么些人，始终在时代面前游离甚至背离。他们的焦躁与不安，正是如今人们无法谅解自由体诗歌的根源——大家往往只承认浅表的象征，满足于明白、浅层次的诗歌，而这正是现代诗歌发展最大的隐患。<br><br>
+      培根在《论变更》中说：“一切……的幼儿，在最初的阶段，都不好看，一切变更既是如此，变更者，时间之幼儿也……时间是恒动的，以固执袭旧，足使置乱与革新之举无异……”人们已经习惯了“明白诗”，甚至把它当作诗歌唯一的属性。但改变诗歌单一层次、让情感结构更为立体和多元，正是现代诗人的任务，也是新诗命运的艰难之处。这种困境，让我们的心情常常充满了“悲凉的欢悦”。<br><br>
+      当代诗人努力要打破诗歌的单一性。这并不是要摒弃单纯，恰恰相反，是要通过再创造，让单纯的立意拥有复杂、丰富的情感动因。毕竟，一成不变的面孔，又怎能真正触动人心？<br><br>
+      很多艺术大师都说过：准确的描述不等于真实，描绘客观的东西并不是艺术的全部独创。把内心不可见的意识变成可见的文字，这才是艺术的高地。可惜世人往往满足于表层的启示，却不知事物真正的复杂性与叠加态才有再生的希望。<br><br>
+      <b>诗歌，作为人的复杂精神的具象化，理应不至于让自己窒息。</b>
     </div>
-    <div class="poem-grid">
-      <a href="gui-chu/index.html" class="poem-grid-btn">归处·中叙</a>
-      <a href="xin-nu/index.html" class="poem-grid-btn">心奴</a>
-      <a href="hong-xiu/index.html" class="poem-grid-btn">红袖</a>
-      <a href="yue-meigui/index.html" class="poem-grid-btn">宽容清单</a>
-      <a href="sheng-zhi-hua/index.html" class="poem-grid-btn">垩之花</a>
-      <a href="wuyue/index.html" class="poem-grid-btn">五月 畅想</a>
-      <a href="xiajie/index.html" class="poem-grid-btn">夏季</a>
-      <a href="guocheng/index.html" class="poem-grid-btn">回声寄庭</a>
-      <a href="luolei/index.html" class="poem-grid-btn">满面愁容的走来</a>
-      <!-- ...继续添加你要跳转的诗歌按钮 -->
-    </div>
+  </main>
+  <div class="btn-area">
+    <!-- 按钮区【注意这里每个按钮的链接要指向每首诗的文件夹名】 -->
+    <a href="canmeng/" class="poem-btn">残梦</a>
+    <a href="e-zhihua/" class="poem-btn">垩之花</a>
+    <a href="fuhuowudao/" class="poem-btn">复活舞蹈</a>
+    <a href="gudu/" class="poem-btn">孤独</a>
+    <a href="gui-chu/" class="poem-btn">归处</a>
+    <a href="guoq/" class="poem-btn">郭曲</a>
+    <a href="hong-xiu/" class="poem-btn">红袖</a>
+    <a href="huixinyuan/" class="poem-btn">回心院</a>
+    <a href="linghun/" class="poem-btn">灵魂</a>
+    <a href="lutai/" class="poem-btn">露台</a>
+    <a href="wenchuan/" class="poem-btn">汶川</a>
+    <a href="woyouyige/" class="poem-btn">我有一个</a>
+    <a href="wuyue/" class="poem-btn">五月</a>
+    <a href="xiaji/" class="poem-btn">夏季</a>
+    <a href="xiangshui/" class="poem-btn">香水</a>
+    <a href="xin-nu/" class="poem-btn">心奴</a>
+    <a href="ye-meigui/" class="poem-btn">夜玫瑰</a>
+    <a href="yuwang-qingdan/" class="poem-btn">欲望清单</a>
+  </div>
+  <div class="footer">
+    &copy; 2025 Beam & Muse · Mnemoglyph 诗歌序文页
   </div>
 </body>
 </html>
