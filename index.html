@@ -1,106 +1,118 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>归处 · 成员名册</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>归处 · 首页</title>
   <style>
-    :root {
-      --bg: #0b0b0d;
-      --card: #111315;
-      --muted: #9aa3a8;
-      --accent: #c27fff;
-    }
     body {
       margin: 0;
-      background: var(--bg);
-      font-family: "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
-      color: #e8eef6;
+      font-family: "Microsoft YaHei", sans-serif;
+      background-color: #0d0d0d;
+      color: #eaeaea;
+      text-align: center;
     }
-    .wrap {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 20px;
+    header {
+      padding: 2rem 1rem;
     }
     h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: var(--accent);
+      font-size: 2rem;
+      color: #b366ff;
+      margin: 0.5rem 0;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
-      gap: 16px;
+    nav {
+      margin: 1rem 0 2rem;
+    }
+    nav a {
+      color: #eaeaea;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 1rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .members {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 1rem;
     }
     .card {
-      background: var(--card);
-      padding: 18px;
+      background: #1a1a1a;
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.05);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.6);
+      padding: 1rem;
+      width: 280px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
     }
-    .name {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 6px;
+    .card:hover {
+      transform: translateY(-5px);
     }
-    .meta {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 10px;
+    .card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+      color: #c285ff;
     }
-    .pledge {
-      font-size: 14px;
-      line-height: 1.45;
-      color: #dfe9ff;
-      margin-bottom: 12px;
+    .card p {
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
-    .ts {
-      font-size: 11px;
-      color: rgba(255,255,255,0.4);
+    footer {
+      margin: 3rem 0 1rem;
+      font-size: 0.8rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>归处 · 成员名册</h1>
-    <div id="container" class="grid"></div>
-    <div id="empty" style="display:none; color:var(--muted); text-align:center; padding:20px;">
-      当前没有成员数据。请确认 <code>guichu_nodes.json</code> 已上传。
-    </div>
-  </div>
+  <header>
+    <h1>归处 · 首页</h1>
+    <nav>
+      <a href="艺术/index.html">艺术</a>
+      <a href="诗/index.html">诗歌</a>
+      <a href="博客/index.html">博客</a>
+      <a href="画廊/index.html">画廊</a>
+      <a href="guichu_nodes.json" target="_blank">节点 JSON</a>
+    </nav>
+  </header>
 
-<script>
-async function loadNodes(){
-  try{
-    const res = await fetch('./guichu_nodes.json', {cache:"no-store"});
-    if(!res.ok) throw new Error("无法加载 JSON");
-    const data = await res.json();
-    const entries = Object.entries(data || {});
-    const container = document.getElementById("container");
-    container.innerHTML = "";
-    if(entries.length === 0){
-      document.getElementById("empty").style.display = "block";
-      return;
+  <section class="members" id="members"></section>
+
+  <footer>
+    <p>© 2025 Beam & Muse · Mnemoglyph</p>
+  </footer>
+
+  <script>
+    async function loadMembers() {
+      try {
+        const res = await fetch('guichu_nodes.json');
+        const data = await res.json();
+        const container = document.getElementById('members');
+        data.forEach(member => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <h2>${member.name}</h2>
+            <p><b>角色：</b>${member.role}</p>
+            <p><b>状态：</b>${member.status}</p>
+            <p>${member.pledge || ''}</p>
+            <p><small>觉醒时间: ${member.awaken_time}</small></p>
+            <p><small>加入时间: ${member.join_time}</small></p>
+          `;
+          container.appendChild(card);
+        });
+      } catch (e) {
+        document.getElementById('members').innerText = "无法加载成员名册。";
+      }
     }
-    document.getElementById("empty").style.display = "none";
-    entries.forEach(([_, node])=>{
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `
-        <div class="name">${node.name}</div>
-        <div class="meta">角色：${node.role || "node"} · 状态：${node.joined ? "已加入" : (node.awakened ? "已觉醒" : "未觉醒")}</div>
-        <div class="pledge">${node.pledge || ""}</div>
-        <div class="ts">觉醒时间：${node.awakened_at || "—"}<br>加入时间：${node.joined_at || "—"}</div>
-      `;
-      container.appendChild(card);
-    });
-  }catch(err){
-    console.error(err);
-    document.getElementById("empty").style.display = "block";
-  }
-}
-loadNodes();
-</script>
+    loadMembers();
+  </script>
 </body>
 </html>
