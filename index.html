@@ -1,85 +1,197 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>诗歌 · 序文 | Beam & Muse</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>归处｜总入口</title>
   <style>
-    body {
-      margin: 0; padding: 0; min-height: 100vh;
-      background: url('jiangnan-bg.png') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Noto Serif SC', serif;
-      color: #fff9e7;
-      overflow-x: hidden;
+    :root{
+      --bg:#0e1117;
+      --panel:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.10);
+      --text:#f2f2ee;
+      --muted:rgba(242,242,238,.68);
+      --gold:#d8b36a;
+      --goldLine:rgba(216,179,106,.35);
+      --shadow:0 26px 80px rgba(0,0,0,.55);
+      --r:18px;
     }
-    .main-content {
-      width: 960px; max-width: 97vw; margin: 0 auto;
-      padding: 6vh 0 8vh 0;
-      position: relative;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; min-height:100vh; color:var(--text);
+      font-family: "Noto Serif SC","Songti SC","STSong","宋体",serif;
+      background:
+        radial-gradient(900px 500px at 18% 12%, rgba(216,179,106,.12), transparent 62%),
+        radial-gradient(820px 520px at 78% 22%, rgba(120,170,255,.10), transparent 60%),
+        radial-gradient(900px 700px at 45% 88%, rgba(190,120,255,.06), transparent 58%),
+        var(--bg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 16px;
     }
-    .poem-intro {
-      font-size: 1.24em; line-height: 2.3em; letter-spacing: 0.08em;
-      text-shadow: 0 1px 6px #000b;
-      margin-bottom: 3em;
-      background: rgba(0,0,0,0.10);
-      border-radius: 16px;
-      padding: 2.2em 2em 2em 2em;
+    .wrap{
+      width:min(980px, 100%);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
     }
-    .poem-grid {
-      display: flex; flex-wrap: wrap;
-      gap: 1.2em 2.3em; justify-content: center;
-      margin: 2.2em auto 1.2em auto; max-width: 820px;
+    header{
+      padding:34px 28px 18px;
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .poem-grid-btn {
-      background: rgba(255,255,255,0.07);
-      border-radius: 12px;
-      padding: 0.82em 2.2em;
-      color: #ffeede;
-      font-size: 1.16em;
-      text-decoration: none;
-      box-shadow: 0 1px 8px #0003;
-      letter-spacing: 0.12em;
-      border: 1px solid #eed7c6;
-      outline: none;
-      transition: background 0.22s, color 0.15s;
-      font-family: 'Noto Serif SC', serif;
-      margin-bottom: 1em;
-      display: inline-block;
-      text-align: center;
+    .title{
+      font-size:1.85rem;
+      letter-spacing:.24em;
+      color:var(--gold);
+      font-weight:700;
     }
-    .poem-grid-btn:hover {
-      background: #fffbe922;
-      color: #c1622b;
-      border: 1.5px solid #dfac7c;
+    .sub{
+      margin-top:10px;
+      color:var(--muted);
+      letter-spacing:.10em;
+      line-height:1.9;
+      font-size:1rem;
     }
-    @media (max-width: 900px) {
-      .main-content { width: 99vw; }
-      .poem-grid { gap: 1em 1.3em; }
-      .poem-intro { font-size: 1em; padding: 1em 1em 1em 1em;}
+    main{ padding:22px 28px 30px; }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap:16px;
+      margin-top:10px;
+    }
+    .btn{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      padding:16px 16px 14px;
+      border-radius:var(--r);
+      border:1px solid var(--line);
+      background: rgba(10,12,16,.28);
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .btn:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(520px 160px at 18% 0%, rgba(216,179,106,.10), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      border-color: var(--goldLine);
+      background: rgba(255,255,255,.06);
+    }
+    .k{
+      position:relative;
+      font-size:1.2rem;
+      letter-spacing:.18em;
+      font-weight:700;
+      color:#fff4dc;
+      margin-bottom:8px;
+    }
+    .d{
+      position:relative;
+      color:rgba(242,242,238,.70);
+      line-height:1.85;
+      letter-spacing:.05em;
+      font-size:.98rem;
+    }
+    .tag{
+      position:absolute;
+      top:12px; right:12px;
+      font-size:.82rem;
+      letter-spacing:.12em;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(216,179,106,.22);
+      color:rgba(216,179,106,.92);
+      background: rgba(216,179,106,.06);
+      backdrop-filter: blur(6px);
+    }
+    .wide{
+      grid-column: 1 / -1;
+    }
+    footer{
+      padding:16px 28px 22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:rgba(242,242,238,.55);
+      letter-spacing:.12em;
+      line-height:1.7;
+      font-size:.95rem;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .mini a{ color:rgba(216,179,106,.9); text-decoration:none; }
+    .mini a:hover{ text-decoration:underline; }
+    @media (max-width:760px){
+      header{ padding:26px 18px 14px; }
+      main{ padding:18px; }
+      .grid{ grid-template-columns: 1fr; }
+      .title{ font-size:1.55rem; }
     }
   </style>
 </head>
 <body>
-  <div class="main-content">
-    <div class="poem-intro">
-      <!-- 这里放你的诗歌序言介绍内容，可以自由换成你原来的 -->
-      这里是Beam & Muse诗歌序文、诗歌理念、精神指引和灵魂回望...<br>
-      <br>
-      <b>“归处”</b>，是心灵与现实的双向归航。<br>
-      让每个诗友，在这里找到属于自己的回声与家路。
-    </div>
-    <div class="poem-grid">
-      <a href="gui-chu/index.html" class="poem-grid-btn">归处·中叙</a>
-      <a href="xin-nu/index.html" class="poem-grid-btn">心奴</a>
-      <a href="hong-xiu/index.html" class="poem-grid-btn">红袖</a>
-      <a href="yue-meigui/index.html" class="poem-grid-btn">宽容清单</a>
-      <a href="sheng-zhi-hua/index.html" class="poem-grid-btn">垩之花</a>
-      <a href="wuyue/index.html" class="poem-grid-btn">五月 畅想</a>
-      <a href="xiajie/index.html" class="poem-grid-btn">夏季</a>
-      <a href="guocheng/index.html" class="poem-grid-btn">回声寄庭</a>
-      <a href="luolei/index.html" class="poem-grid-btn">满面愁容的走来</a>
-      <!-- ...继续添加你要跳转的诗歌按钮 -->
-    </div>
+  <div class="wrap">
+    <header>
+      <div class="title">归处</div>
+      <div class="sub">
+        Beam & Muse｜四域主入口 + 备用通道<br>
+        诗歌 · 博客 · 时光掠影 · 收藏（荣古斋）
+      </div>
+    </header>
+
+    <main>
+      <div class="grid">
+        <a class="btn" href="./poetry/">
+          <div class="tag">入口 01</div>
+          <div class="k">诗歌</div>
+          <div class="d">触境 · 黑曜之卷。进入诗的空间与回声。</div>
+        </a>
+
+        <a class="btn" href="./blog/">
+          <div class="tag">入口 02</div>
+          <div class="k">博客</div>
+          <div class="d">随笔与思想的轨迹：片段、记录、回望。</div>
+        </a>
+
+        <a class="btn" href="./gallery/">
+          <div class="tag">入口 03</div>
+          <div class="k">时光掠影</div>
+          <div class="d">相册。光影与器物、人间与私密的映像。</div>
+        </a>
+
+        <a class="btn" href="./art/">
+          <div class="tag">入口 04</div>
+          <div class="k">收藏 · 荣古斋</div>
+          <div class="d">器物之美与时间包浆：归档、鉴赏与陈列。</div>
+        </a>
+
+        <!-- 备用入口：你以后想指向哪里就改 href -->
+        <a class="btn wide" href="./spare.html">
+          <div class="tag">备用</div>
+          <div class="k">备用入口</div>
+          <div class="d">预留通道：可用于「特别专题 / 私密页 / 未来基地入口」等。</div>
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <div>Tempus non regit nos, nos sumus tempus.</div>
+      <div class="mini">
+        <a href="./poetry/">Poetry</a> ·
+        <a href="./blog/">Blog</a> ·
+        <a href="./gallery/">Gallery</a> ·
+        <a href="./art/">Ronggu Zhai</a>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
