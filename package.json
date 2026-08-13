@@ -1,0 +1,16 @@
+{
+  "name": "mnemoglyph-home",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mnemoglyph 归处静态网站",
+  "type": "module",
+  "scripts": {
+    "check": "node tools/site.mjs check",
+    "build": "node tools/site.mjs build",
+    "dev": "node tools/site.mjs serve",
+    "preview": "node tools/site.mjs preview"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
