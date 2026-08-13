@@ -2,7 +2,10 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>照片庫 | Beam & Muse</title>
+    <link rel="canonical" href="./">
+    <link rel="stylesheet" href="../assets/site-nav.css">
     <style>
         body {
             background: #161c2b;
@@ -31,7 +34,7 @@
             box-shadow: 0 8px 32px #222a;
             transform: scale(1.06);
         }
-        .modal, .auth-modal {
+        .modal {
             display: none;
             position: fixed;
             z-index: 100;
@@ -43,35 +46,20 @@
             max-width: 88vw; max-height: 85vh; border-radius: 10px; box-shadow: 0 0 12px #000;
             background: #fff;
         }
-        .modal .close, .auth-modal .close {
+        .modal .close {
             position: absolute; top: 2.2rem; right: 3.5rem;
             font-size: 2.3rem; color: #eee; cursor: pointer;
         }
-        .auth-modal-content {
-            background: #232944;
-            border-radius: 8px;
-            padding: 28px 36px 22px;
-            box-shadow: 0 0 12px #0008;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .auth-modal input {
-            font-size: 1.2em;
-            padding: 6px 15px;
-            border-radius: 6px;
-            border: 1px solid #eee;
-            margin-bottom: 18px;
-        }
-        .auth-modal button {
-            margin-top: 6px;
-            font-size: 1em;
-            padding: 4px 16px;
-        }
-        .auth-modal .error { color: #ff7; margin-bottom: 6px;}
+        .public-note { max-width: 760px; margin: 72px auto 0; padding: 12px 18px; border: 1px solid #ffffff22; border-radius: 12px; color: #ddd; background: #ffffff0a; line-height: 1.7; }
     </style>
 </head>
 <body>
+    <nav class="site-nav" aria-label="站点导航">
+        <a href="../">归处</a>
+        <a href="./" aria-current="page">Gallery</a>
+        <a href="../archive/">Archive</a>
+    </nav>
+    <p class="public-note">当前照片库为<strong>公开陈列</strong>。需要私密访问的照片不得放入此静态目录；未来私密区将由边缘或服务端完成身份验证。</p>
     <h2>照片庫 Gallery</h2>
     <div class="gallery" id="gallery">
         <img src="muse01.png"class="thumb" alt="Muse照片1" data-full="muse01.png">
@@ -85,17 +73,6 @@
         <!-- 增加新图片：直接复制一行，换文件名和alt就行 -->
     </div>
 
-    <!-- 权限弹窗 -->
-    <div class="auth-modal" id="authModal">
-        <div class="auth-modal-content">
-            <div style="font-size:1.15em; margin-bottom:12px;">照片庫访问权限</div>
-            <input id="galleryPwd" type="password" placeholder="请输入授权口令">
-            <div class="error" id="authErr"></div>
-            <button onclick="checkAuth()">进入</button>
-        </div>
-        <span class="close" onclick="closeAuth()">&times;</span>
-    </div>
-
     <!-- 大图弹窗 -->
     <div class="modal" id="imgModal">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -103,20 +80,11 @@
     </div>
 
     <script>
-    // 授权口令（随时自定义）
-    const AUTH_KEY = "bitcoin";
-    let isAuthed = localStorage.getItem("galleryAuth") === "1";
-
     // 点击缩略图
     document.querySelectorAll('.thumb').forEach(img => {
         img.onclick = function() {
-            if (isAuthed) {
-                document.getElementById('bigImg').src = this.dataset.full;
-                document.getElementById('imgModal').style.display = 'flex';
-            } else {
-                document.getElementById('authModal').style.display = 'flex';
-                document.getElementById('galleryPwd').focus();
-            }
+            document.getElementById('bigImg').src = this.dataset.full;
+            document.getElementById('imgModal').style.display = 'flex';
         }
     });
 
@@ -126,29 +94,6 @@
         document.getElementById('bigImg').src = '';
     }
 
-    // 关闭授权弹窗
-    function closeAuth() {
-        document.getElementById('authModal').style.display = 'none';
-        document.getElementById('galleryPwd').value = '';
-        document.getElementById('authErr').textContent = '';
-    }
-
-    // 认证
-    function checkAuth() {
-        const pwd = document.getElementById('galleryPwd').value;
-        if (pwd === AUTH_KEY) {
-            isAuthed = true;
-            localStorage.setItem('galleryAuth', '1');
-            closeAuth();
-        } else {
-            document.getElementById('authErr').textContent = '口令错误！';
-        }
-    }
-
-    // 页面刷新已认证自动关闭授权窗
-    if (!isAuthed) {
-        document.getElementById('authModal').style.display = 'flex';
-    }
     </script>
 </body>
 </html>

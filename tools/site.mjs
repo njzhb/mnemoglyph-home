@@ -12,7 +12,14 @@ const ignoredRootFiles = new Set([
   "package.json",
   "package-lock.json",
   "README.md",
-  "RECOVERY_AUDIT_2026-08-13.md"
+  "RECOVERY_AUDIT_2026-08-13.md",
+  "SECURITY_MODEL.md",
+  "SITE_ARCHITECTURE.md"
+]);
+const ignoredPublishPrefixes = ["blog/src/"];
+const ignoredPublishFiles = new Set([
+  "blog/static/js/main.70d4e2e3.js",
+  "blog/static/js/main.70d4e2e3.js.LICENSE.txt"
 ]);
 const referencePattern = /(?:href|src|data-full)\s*=\s*["']([^"']*)["']|url\(\s*["']?([^"')]+)|(?:window\.)?location\.href\s*=\s*["']([^"']+)["']/gi;
 
@@ -27,7 +34,13 @@ async function walk(directory, base = directory) {
     if (directory === root && entry.isFile() && ignoredRootFiles.has(entry.name)) continue;
     const absolute = path.join(directory, entry.name);
     if (entry.isDirectory()) files.push(...await walk(absolute, base));
-    if (entry.isFile()) files.push(path.relative(base, absolute).split(path.sep).join("/"));
+    if (entry.isFile()) {
+      const relative = path.relative(base, absolute).split(path.sep).join("/");
+      if (relative.endsWith(".map")) continue;
+      if (ignoredPublishFiles.has(relative)) continue;
+      if (ignoredPublishPrefixes.some((prefix) => relative.startsWith(prefix))) continue;
+      files.push(relative);
+    }
   }
   return files;
 }
@@ -59,6 +72,7 @@ async function checkSite(directory) {
   const fileSet = new Set(files);
   const pages = files.filter((file) => file.endsWith(".html"));
   const missing = [];
+  const pageEdges = new Map(pages.map((page) => [page, []]));
 
   for (const page of pages) {
     const source = await readFile(path.join(directory, page), "utf8");
@@ -66,8 +80,11 @@ async function checkSite(directory) {
       const reference = match[1] || match[2] || match[3] || "";
       if (isExternal(reference)) continue;
       const candidates = localCandidates(page, reference);
-      if (!candidates.some((candidate) => fileSet.has(candidate))) {
+      const resolved = candidates.find((candidate) => fileSet.has(candidate));
+      if (!resolved) {
         missing.push(`${page}: ${reference}`);
+      } else if (resolved.endsWith(".html")) {
+        pageEdges.get(page).push(resolved);
       }
     }
   }
@@ -76,18 +93,33 @@ async function checkSite(directory) {
     throw new Error(`Missing local references:\n${missing.map((item) => `- ${item}`).join("\n")}`);
   }
 
+  const reachable = new Set(["index.html"]);
+  const queue = ["index.html"];
+  while (queue.length) {
+    const page = queue.shift();
+    for (const target of pageEdges.get(page) || []) {
+      if (reachable.has(target)) continue;
+      reachable.add(target);
+      queue.push(target);
+    }
+  }
+  const unreachable = pages.filter((page) => !reachable.has(page));
+  if (unreachable.length) {
+    throw new Error(`Unreachable HTML pages:\n${unreachable.map((page) => `- ${page}`).join("\n")}`);
+  }
+
   const bytes = (await Promise.all(files.map(async (file) => (await stat(path.join(directory, file))).size)))
     .reduce((total, size) => total + size, 0);
-  return { files: files.length, pages: pages.length, bytes };
+  return { files: files.length, pages: pages.length, reachable: reachable.size, bytes };
 }
 
 async function build() {
   await rm(output, { recursive: true, force: true });
   await mkdir(output, { recursive: true });
-  for (const entry of await readdir(root, { withFileTypes: true })) {
-    if (entry.isDirectory() && isIgnoredDirectory(entry.name)) continue;
-    if (entry.isFile() && ignoredRootFiles.has(entry.name)) continue;
-    await cp(path.join(root, entry.name), path.join(output, entry.name), { recursive: true });
+  for (const file of await walk(root, root)) {
+    const destination = path.join(output, file);
+    await mkdir(path.dirname(destination), { recursive: true });
+    await cp(path.join(root, file), destination);
   }
   const result = await checkSite(output);
   console.log(`Built ${result.pages} pages and ${result.files} files (${result.bytes} bytes) into dist/.`);
@@ -127,7 +159,7 @@ async function serve() {
 const command = process.argv[2] || "check";
 if (command === "check") {
   const result = await checkSite(root);
-  console.log(`Checked ${result.pages} pages and ${result.files} files; local references resolve.`);
+  console.log(`Checked ${result.pages} pages and ${result.files} files; local references resolve and all pages are reachable.`);
 } else if (command === "build") {
   await build();
 } else if (command === "serve" || command === "preview") {

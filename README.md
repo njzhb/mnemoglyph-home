@@ -34,3 +34,10 @@ npm run build
 - Environment variables：当前站点不需要自定义变量
 
 在确认 Cloudflare 控制台现有项目配置前，不要新增 Wrangler 配置文件或新建同名 Pages 项目，以免覆盖已有生产设置。
+
+## Architecture & Security v1
+
+- 信息架构：[`SITE_ARCHITECTURE.md`](SITE_ARCHITECTURE.md)
+- 安全边界：[`SECURITY_MODEL.md`](SECURITY_MODEL.md)
+- 当前 `/gallery/` 是公开陈列；真正私密照片不得进入公开仓库或 `dist/`。
+- `blog/src/`、source map 和未引用旧 bundle 保留在 Git 中，但 production build 不发布。
