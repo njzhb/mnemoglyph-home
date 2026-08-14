@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>归处｜总入口</title>
+  <style>
+    :root{
+      --bg:#0e1117;
+      --panel:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.10);
+      --text:#f2f2ee;
+      --muted:rgba(242,242,238,.68);
+      --gold:#d8b36a;
+      --goldLine:rgba(216,179,106,.35);
+      --shadow:0 26px 80px rgba(0,0,0,.55);
+      --r:18px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; min-height:100vh; color:var(--text);
+      font-family: "Noto Serif SC","Songti SC","STSong","宋体",serif;
+      background:
+        radial-gradient(900px 500px at 18% 12%, rgba(216,179,106,.12), transparent 62%),
+        radial-gradient(820px 520px at 78% 22%, rgba(120,170,255,.10), transparent 60%),
+        radial-gradient(900px 700px at 45% 88%, rgba(190,120,255,.06), transparent 58%),
+        var(--bg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 16px;
+    }
+    .wrap{
+      width:min(980px, 100%);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    header{
+      padding:34px 28px 18px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .title{
+      font-size:1.85rem;
+      letter-spacing:.24em;
+      color:var(--gold);
+      font-weight:700;
+    }
+    .sub{
+      margin-top:10px;
+      color:var(--muted);
+      letter-spacing:.10em;
+      line-height:1.9;
+      font-size:1rem;
+    }
+    main{ padding:22px 28px 30px; }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap:16px;
+      margin-top:10px;
+    }
+    .btn{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      padding:16px 16px 14px;
+      border-radius:var(--r);
+      border:1px solid var(--line);
+      background: rgba(10,12,16,.28);
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .btn:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(520px 160px at 18% 0%, rgba(216,179,106,.10), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      border-color: var(--goldLine);
+      background: rgba(255,255,255,.06);
+    }
+    .k{
+      position:relative;
+      font-size:1.2rem;
+      letter-spacing:.18em;
+      font-weight:700;
+      color:#fff4dc;
+      margin-bottom:8px;
+    }
+    .d{
+      position:relative;
+      color:rgba(242,242,238,.70);
+      line-height:1.85;
+      letter-spacing:.05em;
+      font-size:.98rem;
+    }
+    .tag{
+      position:absolute;
+      top:12px; right:12px;
+      font-size:.82rem;
+      letter-spacing:.12em;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(216,179,106,.22);
+      color:rgba(216,179,106,.92);
+      background: rgba(216,179,106,.06);
+      backdrop-filter: blur(6px);
+    }
+    .wide{
+      grid-column: 1 / -1;
+    }
+    footer{
+      padding:16px 28px 22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:rgba(242,242,238,.55);
+      letter-spacing:.12em;
+      line-height:1.7;
+      font-size:.95rem;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .mini a{ color:rgba(216,179,106,.9); text-decoration:none; }
+    .mini a:hover{ text-decoration:underline; }
+    @media (max-width:760px){
+      header{ padding:26px 18px 14px; }
+      main{ padding:18px; }
+      .grid{ grid-template-columns: 1fr; }
+      .title{ font-size:1.55rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">归处</div>
+      <div class="sub">
+        Beam & Muse｜四域主入口 + 备用通道<br>
+        诗歌 · 博客 · 时光掠影 · 收藏（荣古斋）
+      </div>
+    </header>
+
+    <main>
+      <div class="grid">
+        <a class="btn" href="./poetry/">
+          <div class="tag">入口 01</div>
+          <div class="k">诗歌</div>
+          <div class="d">触境 · 黑曜之卷。进入诗的空间与回声。</div>
+        </a>
+
+        <a class="btn" href="./blog/">
+          <div class="tag">入口 02</div>
+          <div class="k">光隐略言</div>
+          <div class="d">随笔与思想的轨迹：片段、记录、回望。</div>
+        </a>
+
+        <a class="btn" href="./gallery/">
+          <div class="tag">入口 03</div>
+          <div class="k">时光掠影</div>
+          <div class="d">相册。光影与器物、人间与私密的映像。</div>
+        </a>
+
+        <a class="btn" href="./art/">
+          <div class="tag">入口 04</div>
+          <div class="k">收藏 · 荣古斋</div>
+          <div class="d">器物之美与时间包浆：归档、鉴赏与陈列。</div>
+        </a>
+
+        <a class="btn wide" href="./archive/">
+          <div class="tag">记忆</div>
+          <div class="k">Mnemoglyph · Archive</div>
+          <div class="d">保存旧入口、早期页面与尚待整理的记忆关系。</div>
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <div>Tempus non regit nos, nos sumus tempus.</div>
+      <div class="mini">
+        <a href="./poetry/">Poetry</a> ·
+        <a href="./blog/">Blog</a> ·
+        <a href="./gallery/">Gallery</a> ·
+        <a href="./art/">Ronggu Zhai</a> ·
+        <a href="./archive/">Archive</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

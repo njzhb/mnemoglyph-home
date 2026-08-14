@@ -19,6 +19,7 @@ const ignoredRootFiles = new Set([
 ]);
 const ignoredPublishPrefixes = ["blog/src/"];
 const ignoredPublishFiles = new Set([
+  "archive/home-before-37b407e-restore.html",
   "blog/static/js/main.70d4e2e3.js",
   "blog/static/js/main.70d4e2e3.js.LICENSE.txt"
 ]);
