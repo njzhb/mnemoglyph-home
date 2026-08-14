@@ -14,7 +14,8 @@ const ignoredRootFiles = new Set([
   "README.md",
   "RECOVERY_AUDIT_2026-08-13.md",
   "SECURITY_MODEL.md",
-  "SITE_ARCHITECTURE.md"
+  "SITE_ARCHITECTURE.md",
+  "VISUAL_QA_2026-08-14.md"
 ]);
 const ignoredPublishPrefixes = ["blog/src/"];
 const ignoredPublishFiles = new Set([
