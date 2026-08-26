@@ -34,8 +34,11 @@ async function walk(directory, base = directory) {
     if (entry.isDirectory() && isIgnoredDirectory(entry.name)) continue;
     if (directory === root && entry.isFile() && ignoredRootFiles.has(entry.name)) continue;
     const absolute = path.join(directory, entry.name);
-    if (entry.isDirectory()) files.push(...await walk(absolute, base));
-    if (entry.isFile()) {
+    const entryStat = entry.isSymbolicLink() ? await stat(absolute) : null;
+    const isDirectory = entry.isDirectory() || entryStat?.isDirectory();
+    const isFile = entry.isFile() || entryStat?.isFile();
+    if (isDirectory && !isIgnoredDirectory(entry.name)) files.push(...await walk(absolute, base));
+    if (isFile) {
       const relative = path.relative(base, absolute).split(path.sep).join("/");
       if (relative.endsWith(".map")) continue;
       if (ignoredPublishFiles.has(relative)) continue;
@@ -120,7 +123,7 @@ async function build() {
   for (const file of await walk(root, root)) {
     const destination = path.join(output, file);
     await mkdir(path.dirname(destination), { recursive: true });
-    await cp(path.join(root, file), destination);
+    await cp(path.join(root, file), destination, { dereference: true });
   }
   const result = await checkSite(output);
   console.log(`Built ${result.pages} pages and ${result.files} files (${result.bytes} bytes) into dist/.`);
@@ -143,6 +146,7 @@ async function serve() {
     try {
       const url = new URL(request.url || "/", `http://${request.headers.host || host}`);
       let pathname = decodeURIComponent(url.pathname);
+      if (pathname === "/favicon.ico") pathname = "/blog/favicon.ico";
       if (pathname.endsWith("/")) pathname += "index.html";
       const file = path.resolve(output, `.${pathname}`);
       if (file !== output && !file.startsWith(`${output}${path.sep}`)) throw new Error("Invalid path");

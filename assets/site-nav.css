@@ -35,6 +35,11 @@
   outline: none;
 }
 
+/* The shared section link supersedes legacy return controls on every viewport. */
+.back-btn {
+  display: none !important;
+}
+
 @media (max-width: 520px) {
   .site-nav {
     left: auto;
@@ -43,8 +48,4 @@
     font-size: 11px;
   }
 
-  /* The shared Poetry link supersedes legacy return controls on small screens. */
-  .back-btn {
-    display: none !important;
-  }
 }

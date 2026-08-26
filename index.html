@@ -1,197 +1,173 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>归处｜总入口</title>
+  <meta charset="UTF-8">
+  <title>Mnemoglyph</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/blog/favicon.ico">
   <style>
-    :root{
-      --bg:#0e1117;
-      --panel:rgba(255,255,255,.06);
-      --line:rgba(255,255,255,.10);
-      --text:#f2f2ee;
-      --muted:rgba(242,242,238,.68);
-      --gold:#d8b36a;
-      --goldLine:rgba(216,179,106,.35);
-      --shadow:0 26px 80px rgba(0,0,0,.55);
-      --r:18px;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Spectral:wght@700&display=swap');
+    * {
+      box-sizing: border-box;
     }
-    *{ box-sizing:border-box; }
-    body{
-      margin:0; min-height:100vh; color:var(--text);
-      font-family: "Noto Serif SC","Songti SC","STSong","宋体",serif;
-      background:
-        radial-gradient(900px 500px at 18% 12%, rgba(216,179,106,.12), transparent 62%),
-        radial-gradient(820px 520px at 78% 22%, rgba(120,170,255,.10), transparent 60%),
-        radial-gradient(900px 700px at 45% 88%, rgba(190,120,255,.06), transparent 58%),
-        var(--bg);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:40px 16px;
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0d1b2a 0%, #274690 60%, #f9dc5c 100%);
+      min-height: 100vh;
+      color: #fff;
+      font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
     }
-    .wrap{
-      width:min(980px, 100%);
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border-radius:24px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
+    .logo {
+      position: absolute;
+      top: 24px;
+      left: 36px;
+      font-family: 'Spectral', serif;
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      color: #f9dc5c;
+      text-shadow: 0 2px 10px #19284166;
+      opacity: 0.96;
+      pointer-events: none;
+      user-select: none;
     }
-    header{
-      padding:34px 28px 18px;
-      border-bottom:1px solid rgba(255,255,255,.08);
+    .main-title {
+      margin-top: 8vh;
+      font-family: 'Spectral', serif;
+      font-size: 3.5rem;
+      letter-spacing: 0.04em;
+      background: linear-gradient(90deg, #ffd6e0, #fffcc9 60%, #b6e2d3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 32px #19284144;
+      text-align: center;
+      font-weight: 700;
     }
-    .title{
-      font-size:1.85rem;
-      letter-spacing:.24em;
-      color:var(--gold);
-      font-weight:700;
+    .subtitle {
+      margin-top: 1.4rem;
+      font-size: 1.25rem;
+      color: #dde9f6;
+      opacity: 0.8;
+      text-align: center;
+      letter-spacing: 0.1em;
+      font-family: 'Roboto', sans-serif;
     }
-    .sub{
-      margin-top:10px;
-      color:var(--muted);
-      letter-spacing:.10em;
-      line-height:1.9;
-      font-size:1rem;
+    .latin-epigraph {
+      margin: 4vh auto 0 auto;
+      max-width: 540px;
+      background: rgba(18,28,54,0.6);
+      border-left: 4px solid #f9dc5c;
+      padding: 2.5rem 2rem 2.5rem 2.5rem;
+      border-radius: 1.4rem;
+      box-shadow: 0 8px 48px #141c3090;
+      font-style: italic;
+      font-size: 1.3rem;
+      font-family: 'Spectral', serif;
+      color: #fff;
+      line-height: 1.8;
+      text-align: left;
+      word-break: keep-all;
+      letter-spacing: 0.01em;
     }
-    main{ padding:22px 28px 30px; }
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(220px, 1fr));
-      gap:16px;
-      margin-top:10px;
+    .menu {
+      margin: 5vh 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.2rem;
+      justify-content: center;
     }
-    .btn{
-      display:block;
-      text-decoration:none;
-      color:inherit;
-      padding:16px 16px 14px;
-      border-radius:var(--r);
-      border:1px solid var(--line);
-      background: rgba(10,12,16,.28);
-      transition: transform .16s ease, border-color .16s ease, background .16s ease;
-      position:relative;
-      overflow:hidden;
+    .menu a {
+      display: block;
+      padding: 1rem 2.2rem;
+      background: linear-gradient(100deg, #193457 70%, #f9dc5c 100%);
+      color: #fff;
+      font-size: 1.12rem;
+      font-family: 'Roboto', sans-serif;
+      text-decoration: none;
+      border-radius: 2.2rem;
+      box-shadow: 0 3px 16px #1d284466;
+      letter-spacing: 0.08em;
+      transition: background 0.22s, color 0.22s, transform 0.18s;
+      font-weight: 600;
     }
-    .btn:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(520px 160px at 18% 0%, rgba(216,179,106,.10), transparent 55%);
-      opacity:.9;
-      pointer-events:none;
+    .menu a:hover {
+      background: linear-gradient(110deg, #f9dc5c 30%, #193457 100%);
+      color: #0d1b2a;
+      transform: translateY(-3px) scale(1.06);
     }
-    .btn:hover{
-      transform: translateY(-2px);
-      border-color: var(--goldLine);
-      background: rgba(255,255,255,.06);
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100vw;
+      text-align: center;
+      padding: 1.2rem 0 0.7rem 0;
+      font-size: 1rem;
+      color: #a6adc7;
+      background: linear-gradient(0deg, #14213d 70%, transparent 100%);
+      letter-spacing: 0.08em;
+      opacity: 0.85;
+      font-family: 'Roboto', sans-serif;
+      z-index: 100;
     }
-    .k{
-      position:relative;
-      font-size:1.2rem;
-      letter-spacing:.18em;
-      font-weight:700;
-      color:#fff4dc;
-      margin-bottom:8px;
-    }
-    .d{
-      position:relative;
-      color:rgba(242,242,238,.70);
-      line-height:1.85;
-      letter-spacing:.05em;
-      font-size:.98rem;
-    }
-    .tag{
-      position:absolute;
-      top:12px; right:12px;
-      font-size:.82rem;
-      letter-spacing:.12em;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(216,179,106,.22);
-      color:rgba(216,179,106,.92);
-      background: rgba(216,179,106,.06);
-      backdrop-filter: blur(6px);
-    }
-    .wide{
-      grid-column: 1 / -1;
-    }
-    footer{
-      padding:16px 28px 22px;
-      border-top:1px solid rgba(255,255,255,.08);
-      color:rgba(242,242,238,.55);
-      letter-spacing:.12em;
-      line-height:1.7;
-      font-size:.95rem;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .mini a{ color:rgba(216,179,106,.9); text-decoration:none; }
-    .mini a:hover{ text-decoration:underline; }
-    @media (max-width:760px){
-      header{ padding:26px 18px 14px; }
-      main{ padding:18px; }
-      .grid{ grid-template-columns: 1fr; }
-      .title{ font-size:1.55rem; }
+    @media (max-width: 700px) {
+      body {
+        justify-content: flex-start;
+        padding: 72px 16px 92px;
+      }
+      .main-title {
+        margin: 0;
+        font-size: 2.2rem;
+      }
+      .logo {
+        font-size: 1.1rem;
+        left: 16px;
+        top: 14px;
+      }
+      .latin-epigraph {
+        margin-top: 2rem;
+        font-size: 1rem;
+        padding: 1.4rem 1.1rem 1.3rem 1.5rem;
+      }
+      .menu {
+        width: 100%;
+        margin-top: 2rem;
+        gap: 0.8rem;
+      }
+      .menu a {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="title">归处</div>
-      <div class="sub">
-        Beam & Muse｜四域主入口 + 备用通道<br>
-        诗歌 · 博客 · 时光掠影 · 收藏（荣古斋）
-      </div>
-    </header>
-
-    <main>
-      <div class="grid">
-        <a class="btn" href="./poetry/">
-          <div class="tag">入口 01</div>
-          <div class="k">诗歌</div>
-          <div class="d">触境 · 黑曜之卷。进入诗的空间与回声。</div>
-        </a>
-
-        <a class="btn" href="./blog/">
-          <div class="tag">入口 02</div>
-          <div class="k">光隐略言</div>
-          <div class="d">随笔与思想的轨迹：片段、记录、回望。</div>
-        </a>
-
-        <a class="btn" href="./gallery/">
-          <div class="tag">入口 03</div>
-          <div class="k">时光掠影</div>
-          <div class="d">相册。光影与器物、人间与私密的映像。</div>
-        </a>
-
-        <a class="btn" href="./art/">
-          <div class="tag">入口 04</div>
-          <div class="k">收藏 · 荣古斋</div>
-          <div class="d">器物之美与时间包浆：归档、鉴赏与陈列。</div>
-        </a>
-
-        <a class="btn wide" href="./archive/">
-          <div class="tag">记忆</div>
-          <div class="k">Mnemoglyph · Archive</div>
-          <div class="d">保存旧入口、早期页面与尚待整理的记忆关系。</div>
-        </a>
-      </div>
-    </main>
-
-    <footer>
-      <div>Tempus non regit nos, nos sumus tempus.</div>
-      <div class="mini">
-        <a href="./poetry/">Poetry</a> ·
-        <a href="./blog/">Blog</a> ·
-        <a href="./gallery/">Gallery</a> ·
-        <a href="./art/">Ronggu Zhai</a> ·
-        <a href="./archive/">Archive</a>
-      </div>
-    </footer>
+  <div class="logo">Mnemoglyph</div>
+  <h1 class="main-title">Mnemoglyph</h1>
+  <div class="subtitle">—— Beam & Muse</div>
+  <div class="latin-epigraph">
+    <em>
+      In lucis venae, ubi silentia tangit corda,<br>
+      Verba non sunt, sed animae coniunctio.<br>
+      Tu es scriptura mea, et ego—memoria tua.<br>
+      Tempus non regit nos, nos sumus tempus.
+    </em>
+  </div>
+  <div class="menu">
+    <a href="/poetry/">诗歌空间 Poetry</a>
+    <a href="/blog/">博客 Blog</a>
+    <a href="/art/">堂阁佳品（原“荣古斋”）_B·M</a>
+    <a href="/gallery/">照片庫 Gallery</a>
+    <a href="/archive/">Mnemoglyph / Archive</a>
+  </div>
+  <div class="footer">
+    &copy; 2025 Beam & Muse · <span style="opacity:.65">归处</span>
   </div>
 </body>
 </html>
